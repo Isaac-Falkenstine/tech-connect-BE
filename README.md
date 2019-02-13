@@ -1,6 +1,12 @@
+User Registration Request:
+```shell
 POST /api/v1/users
 Body: {"email": "email@example.com", "password": "password", "password_confirmation": "password"}
-Example response:
+```
+
+User Registration Response:
+
+```shell
 {
     "data": {
         "id": "1",
@@ -10,3 +16,4 @@ Example response:
         }
     }
 }
+```
