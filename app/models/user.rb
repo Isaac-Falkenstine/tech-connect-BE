@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   validates_presence_of :password_digest
-  validates_presence_of :email
+  validates :email, uniqueness: true, presence: true
+  has_secure_password validations: false
+
 
   belongs_to :location
   belongs_to :position
