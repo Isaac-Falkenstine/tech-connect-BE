@@ -7,7 +7,7 @@ class Api::V1::UsersController<ApplicationController
       user.api_key = user.make_key
     end
 
-    if user.save
+    if user_params[:password] == user_params[:password_confirmation] && user.save
       render json: UserSerializer.new(user)
     else
       render :json => {error: "It looks like a user is already using that email! Please try again."}, status: 403

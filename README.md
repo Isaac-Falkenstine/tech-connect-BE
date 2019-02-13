@@ -1,4 +1,5 @@
-POST /api/v1/users?email=email_address@example.com&password=password&password_confirmation=password
+POST /api/v1/users
+Body: {"email": "email@example.com", "password": "password", "password_confirmation": "password"}
 Example response:
 {
     "data": {

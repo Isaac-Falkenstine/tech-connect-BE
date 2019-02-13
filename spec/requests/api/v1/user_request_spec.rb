@@ -3,7 +3,8 @@ require 'rails_helper'
 describe 'making a user api and response' do
 
   it 'POST /api/v1/users' do
-    post '/api/v1/users?email=email_address@example.com&password=password&password_confirmation=password'
+    params = {email: "email_address@example.com", password: "password", password_confirmation: "password"}
+    post '/api/v1/users',  params: params
 
     expect(response).to be_successful
 
@@ -14,8 +15,10 @@ describe 'making a user api and response' do
   end
 
   it 'POST /api/v1/users duplicate' do
-    post '/api/v1/users?email=email_address@example.com&password=password&password_confirmation=password'
-    post '/api/v1/users?email=email_address@example.com&password=password&password_confirmation=password'
+    params = {email: "email_address@example.com", password: "password", password_confirmation: "password"}
+    post '/api/v1/users',  params: params
+    post '/api/v1/users',  params: params
+    
     expect(response).not_to be_successful
 
     parsed = JSON.parse(response.body, symbolize_names: true)
