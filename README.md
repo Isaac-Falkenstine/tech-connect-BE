@@ -1,16 +1,16 @@
 
-**Production Base URL:
+**Production Base URL:**
 ```shell 
 https://tech-connect-be.herokuapp.com
 ```
 
-**User Registration Request:
+**User Registration Request:**
 ```shell
 POST /api/v1/users
 Body: {"email": "email@example.com", "password": "password", "password_confirmation": "password"}
 ```
 
-**User Registration Response (Success):
+**User Registration Response (Success):**
 
 ```shell
 {
@@ -24,7 +24,7 @@ Body: {"email": "email@example.com", "password": "password", "password_confirmat
 }
 ```
 
-**User Registration Response (Failure if User's email is already in the system):
+**User Registration Response (Failure if User's email is already in the system):**
 
 ```shell
 {
@@ -32,7 +32,7 @@ Body: {"email": "email@example.com", "password": "password", "password_confirmat
 }
 ```
 
-**User Registration Response (Failure if User's password does not match password confirmation):
+**User Registration Response (Failure if User's password does not match password confirmation):**
 
 ```shell
 {
