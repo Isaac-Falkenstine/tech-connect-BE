@@ -10,7 +10,6 @@ class Api::V1::UsersController<ApplicationController
     if user.save
       render json: UserSerializer.new(user)
     else
-      binding.pry
       render :json => {error: "It looks like a user is already using that email! Please try again."}, status: 403
     end
   end
