@@ -9,7 +9,7 @@ RSpec.describe Message, type: :model do
 
   describe "Relations" do
     it { is_expected.to belong_to(:user) }
-    # belong to connection?
+    it { is_expected.to belong_to(:connection) }  
   end
 
   it "exists" do
