@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2019_02_13_181758) do
     t.string "name"
     t.string "password_digest"
     t.string "email"
-    t.integer "phone_number"
+    t.bigint "phone_number"
     t.string "github"
     t.string "linkedin"
     t.string "bio"
