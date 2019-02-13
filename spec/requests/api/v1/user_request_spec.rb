@@ -18,11 +18,22 @@ describe 'making a user api and response' do
     params = {email: "email_address@example.com", password: "password", password_confirmation: "password"}
     post '/api/v1/users',  params: params
     post '/api/v1/users',  params: params
-    
+
     expect(response).not_to be_successful
 
     parsed = JSON.parse(response.body, symbolize_names: true)
 
-    expect(parsed[:error]).to eq("It looks like a user is already using that email! Please try again.")
+    expect(parsed[:error]).to eq("That e-mail already exists.")
+  end
+
+  it 'POST /api/v1/users no password confirmation' do
+    params = {email: "email_address@example.com", password: "password", password_confirmation: "ppaasssswwoorrdd"}
+    post '/api/v1/users',  params: params
+
+    expect(response).not_to be_successful
+
+    parsed = JSON.parse(response.body, symbolize_names: true)
+
+    expect(parsed[:error]).to eq("The passwords don't match")
   end
 end
