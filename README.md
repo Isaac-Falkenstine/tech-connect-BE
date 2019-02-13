@@ -24,10 +24,18 @@ User Registration Response (Success):
 }
 ```
 
-User Registration Response (Failure):
+User Registration Response (Failure if User's email is already in the system):
 
 ```shell
 {
-    "error": "It looks like a user is already using that email! Please try again."
+    "error": "That e-mail already exists."
+}
+```
+
+User Registration Response (Failure if User's password does not match password confirmation):
+
+```shell
+{
+    "error": "The passwords don't match"
 }
 ```
