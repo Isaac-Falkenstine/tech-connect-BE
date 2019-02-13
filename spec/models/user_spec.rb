@@ -10,6 +10,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to belong_to(:location) }
     it { is_expected.to belong_to(:position) }
     it { is_expected.to belong_to(:employer) }
+    it { is_expected.to have_many(:connections).through(:messages) }
   end
 
   it "exists" do
