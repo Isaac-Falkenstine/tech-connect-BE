@@ -14,6 +14,17 @@ class Api::V1::UsersController<ApplicationController
     end
   end
 
+  def update
+    user = User.find_by(api_key: params[:api_key])
+    if user
+      user.update(update_params)
+
+      render json: ProfileSerializer.new(user)
+    else
+      render :json => {error: "Unauthorized"}, status: 403
+    end
+  end
+
   private
 
   def user_setup
@@ -29,5 +40,14 @@ class Api::V1::UsersController<ApplicationController
 
   def user_params
     params.permit(:email, :password, :password_confirmation)
+  end
+
+  def update_params
+    user_changes_params = params.permit(:email, :name, :phone_number, :github, :linkedin, :bio)
+
+    user_changes_params[:location_id] = Location.find_by(city: params[:location]).id
+    user_changes_params[:position_id] = Position.find_by(job_title: params[:position]).id
+    user_changes_params[:employer_id] = Employer.find_by(name: params[:employer]).id 
+    user_changes_params
   end
 end

@@ -1,3 +1,7 @@
+Location.create(city: "N/A")
+Employer.create(name: "Unemployed", site_url: "N/A")
+Position.create(job_title: "Unemployed")
+
 registered = User.create(id: 1, name: "Registered Joe", email: "registered@email.com", password: "password123")
 second_user = User.create(id: 3, name: "Second Joe", email: "second@email.com", password: "password123")
 
