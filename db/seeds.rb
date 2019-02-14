@@ -9,7 +9,7 @@ second_user = User.create(name: "Second Joe", email: "second@email.com", passwor
 
 denver = Location.create(city: "Denver,CO")
 turing = Employer.create(name: "Turing", site_url: "turing.io")
-employee = Position.create(job_title: "Employee")
+employee = Position.create(job_title: "Backend Instructor")
 updated = User.create(
             name: "Updated Joe",
             email: "updated@email.com",
@@ -32,7 +32,7 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
     employer = Employer.create(name: Faker::Company.name, site_url: "#{company}.com")
     position = Position.create(job_title: Faker::Company.profession)
 
-    User.create(name: Faker::FunnyName.two_word_name,
+    user = User.create(name: Faker::FunnyName.two_word_name,
                 email: Faker::Internet.email,
                 password: Faker::Internet.password,
                 phone_number: rand(1000000000..9999999999),
@@ -43,13 +43,15 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
                 location_id: denver.id,
                 employer_id: employer.id,
                 position_id: position.id)
+
+  Message.create(user_id: registered.id, connection_id: user.id, status: "Confirmed", meeting_date: DateTime.new(2001,2,3,4,5,6), meeting_location: Faker::Restaurant.name)
   end
   #Everyone at google
     4.times do
       employer = Employer.create(name: "Google", site_url: "google.com")
       position = Position.create(job_title: Faker::Company.profession)
 
-      User.create(name: Faker::FunnyName.two_word_name,
+      user = User.create(name: Faker::FunnyName.two_word_name,
                   email: Faker::Internet.email,
                   password: Faker::Internet.password,
                   phone_number: rand(1000000000..9999999999),
@@ -60,13 +62,15 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
                   location_id: denver.id,
                   employer_id: employer.id,
                   position_id: position.id)
+
+      Message.create(user_id: updated.id, connection_id: user.id, status: "Confirmed", meeting_date: DateTime.new(2001,2,3,4,5,6), meeting_location: Faker::Restaurant.name)
     end
     # Everyone as a software developer
       4.times do
         employer = Employer.create(name: "Google", site_url: "google.com")
         position = Position.create(job_title: "Backend Software Developer")
 
-        User.create(name: Faker::FunnyName.two_word_name,
+        user = User.create(name: Faker::FunnyName.two_word_name,
                     email: Faker::Internet.email,
                     password: Faker::Internet.password,
                     phone_number: rand(1000000000..9999999999),
@@ -77,6 +81,7 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
                     location_id: denver.id,
                     employer_id: employer.id,
                     position_id: position.id)
+        Message.create(user_id: second_user.id, connection_id: user.id, status: "Confirmed", meeting_date: DateTime.new(2002,2,6,9,5,1), meeting_location: Faker::Restaurant.name)
       end
     # end Backend Software Developer
   # end google
