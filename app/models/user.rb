@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :messages
   has_many :connections, through: :messages
+  
 
   def make_key
     SecureRandom.urlsafe_base64(12)
