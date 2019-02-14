@@ -16,6 +16,5 @@ describe 'making a location api and response' do
     expect(parsed[:data].length).to eq(4)
     expect(parsed[:data][0][:attributes]).to have_key(:city)
     expect(parsed[:data][0][:attributes][:city]).to eq("Denver,CO")
-
   end
 end
