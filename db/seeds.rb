@@ -38,13 +38,13 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
                 phone_number: rand(1000000000..9999999999),
                 github: Faker::Internet.url('github.com'),
                 linkedin: Faker::Internet.url('linkedin.com'),
-                bio: Faker::Movies::StarWars.quote,
+                bio: Faker::Hipster.paragraph,
                 api_key: SecureRandom.urlsafe_base64(12),
                 location_id: denver.id,
                 employer_id: employer.id,
                 position_id: position.id)
 
-  Message.create(user_id: registered.id, connection_id: user.id, status: "Confirmed", meeting_date: DateTime.new(2001,2,3,4,5,6), meeting_location: Faker::Restaurant.name)
+  Message.create(user_id: registered.id, connection_id: user.id, status: "Confirmed", meeting_date: DateTime.new(2001,2,3,4,5,6), meeting_location: Faker::Lorem.word)
   end
   #Everyone at google
     4.times do
@@ -57,13 +57,13 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
                   phone_number: rand(1000000000..9999999999),
                   github: Faker::Internet.url('github.com'),
                   linkedin: Faker::Internet.url('linkedin.com'),
-                  bio: Faker::Movies::StarWars.quote,
+                  bio: Faker::Hipster.paragraph,
                   api_key: SecureRandom.urlsafe_base64(12),
                   location_id: denver.id,
                   employer_id: employer.id,
                   position_id: position.id)
 
-      Message.create(user_id: updated.id, connection_id: user.id, status: "Confirmed", meeting_date: DateTime.new(2001,2,3,4,5,6), meeting_location: Faker::Restaurant.name)
+      Message.create(user_id: updated.id, connection_id: user.id, status: "Confirmed", meeting_date: DateTime.new(2001,2,3,4,5,6), meeting_location: Faker::Lorem.word)
     end
     # Everyone as a software developer
       4.times do
@@ -76,12 +76,12 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
                     phone_number: rand(1000000000..9999999999),
                     github: Faker::Internet.url('github.com'),
                     linkedin: Faker::Internet.url('linkedin.com'),
-                    bio: Faker::Movies::StarWars.quote,
+                    bio: Faker::Hipster.paragraph,
                     api_key: SecureRandom.urlsafe_base64(12),
                     location_id: denver.id,
                     employer_id: employer.id,
                     position_id: position.id)
-        Message.create(user_id: second_user.id, connection_id: user.id, status: "Confirmed", meeting_date: DateTime.new(2002,2,6,9,5,1), meeting_location: Faker::Restaurant.name)
+        Message.create(user_id: second_user.id, connection_id: user.id, status: "Confirmed", meeting_date: DateTime.new(2002,2,6,9,5,1), meeting_location: Faker::Lorem.word)
       end
     # end Backend Software Developer
   # end google
@@ -90,7 +90,7 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
 
 12.times do
   company = Faker::Company.name
-  location = Location.create(city: Faker::Movies::StarWars.planet)
+  location = Location.create(city: Faker::Address.city)
   employer = Employer.create(name: Faker::Company.name, site_url: "#{company}.com")
   position = Position.create(job_title: Faker::Company.profession)
 
