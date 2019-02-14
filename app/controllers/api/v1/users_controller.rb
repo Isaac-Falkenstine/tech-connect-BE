@@ -47,7 +47,7 @@ class Api::V1::UsersController<ApplicationController
 
     user_changes_params[:location_id] = Location.find_by(city: params[:location]).id
     user_changes_params[:position_id] = Position.find_by(job_title: params[:position]).id
-    user_changes_params[:employer_id] = Employer.find_by(name: params[:employer]).id
+    user_changes_params[:employer_id] = Employer.find_by(name: params[:employer]).id 
     user_changes_params
   end
 end

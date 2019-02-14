@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'making a user api and response' do
 
   it 'PATCH /api/v1/users with api_key in body' do
-    user_1 = create(:user, api_key: "123")
+    user_1 = create(:user, api_key: "123", github: nil)
     location = create(:location, city: "Denver,CO")
     position = create(:position, job_title: "Backend Instructor")
     employer = create(:employer, name: "Turing School for Software & Desgin")
@@ -12,7 +12,6 @@ describe 'making a user api and response' do
               name: "Joe Shmoe",
               email: "email@gmail.com",
               bio: "Hey guys!",
-              github: "github.com/user/joe",
               linkedin: "linkedin.com/user/joe",
               phone_number: 7204908123,
               location: "Denver,CO",
@@ -29,7 +28,7 @@ describe 'making a user api and response' do
     expect(user.email).to eq('email@gmail.com')
     expect(user.bio).to eq('Hey guys!')
     expect(user.phone_number).to eq(7204908123)
-    expect(user.github).to eq("github.com/user/joe")
+    expect(user.github).to eq(nil)
 
     expect(parsed[:data][:attributes]).to have_key(:api_key)
     expect(parsed[:data][:attributes][:api_key]).to eq(user.api_key)
