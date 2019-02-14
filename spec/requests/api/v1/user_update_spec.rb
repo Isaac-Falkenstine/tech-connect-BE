@@ -3,8 +3,12 @@ require 'rails_helper'
 describe 'making a user api and response' do
 
   it 'PATCH /api/v1/users with api_key in body' do
-    user = create(:user, api_key: "123")
-    params = {api_key: "#{user.api_key}",
+    user_1 = create(:user, api_key: "123")
+    location = create(:location, city: "Denver,CO")
+    position = create(:position, job_title: "Backend Instructor")
+    employer = create(:employer, name: "Turing School for Software & Desgin")
+
+    params = {api_key: "#{user_1.api_key}",
               name: "Joe Shmoe",
               email: "email@gmail.com",
               bio: "Hey guys!",
@@ -20,6 +24,7 @@ describe 'making a user api and response' do
     expect(response).to be_successful
 
     parsed = JSON.parse(response.body, symbolize_names: true)
+    user = User.find_by(api_key: parsed[:data][:attributes][:api_key])
 
     expect(user.email).to eq('email@gmail.com')
     expect(user.bio).to eq('Hey guys!')
@@ -27,9 +32,9 @@ describe 'making a user api and response' do
     expect(user.github).to eq("github.com/user/joe")
 
     expect(parsed[:data][:attributes]).to have_key(:api_key)
-    expect(parsed[:data][:attributes][:api_key]).to eq(user.first.api_key)
+    expect(parsed[:data][:attributes][:api_key]).to eq(user.api_key)
     expect(parsed[:data][:attributes]).to have_key(:email)
-    expect(parsed[:data][:attributes][:email]).to eq(user.first.email)
+    expect(parsed[:data][:attributes][:email]).to eq(user.email)
     expect(parsed[:data][:attributes]).to have_key(:name)
     expect(parsed[:data][:attributes]).to have_key(:github)
     expect(parsed[:data][:attributes]).to have_key(:linkedin)

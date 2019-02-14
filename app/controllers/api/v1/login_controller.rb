@@ -2,7 +2,7 @@ class Api::V1::LoginController < ApplicationController
 
   def create
     if valid_user?
-      render json: LoginSerializer.new(current_user)
+      render json: ProfileSerializer.new(current_user)
     else
       render :json => {error: "Unauthorized."}, status: 401
     end

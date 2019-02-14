@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [:create]
       post '/login', to: 'login#create', as: "login"
+      patch '/users', to: 'users#update', as: "update_user"
     end
   end
 end
