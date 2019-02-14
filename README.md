@@ -198,7 +198,7 @@ GET /api/v1/locations
 GET /api/v1/positions
 ```
 
-**Get All Locations Response (Success):**
+**Get All Positions Response (Success):**
 ```shell
 {
     "data": {
