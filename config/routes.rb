@@ -4,6 +4,8 @@ Rails.application.routes.draw do
       resources :users, only: [:create]
       post '/login', to: 'login#create', as: "login"
       patch '/users', to: 'users#update', as: "update_user"
+
+      resources :locations, only: [:index]
     end
   end
 end

@@ -1,11 +1,16 @@
+#TechConnect
 
 **Production Base URL:**
 ```shell
 https://tech-connect-be.herokuapp.com
 ```
 
-**Database Schema**
+**Local Base URL:**
+```shell
+http://localhost:3000
+```
 
+**Database Schema**
 ![alt text](/assets/schema.png)
 
 **User Registration Request:**
@@ -15,7 +20,6 @@ Body: {"email": "email@example.com", "password": "password", "password_confirmat
 ```
 
 **User Registration Response (Success):**
-
 ```shell
 {
     "data": {
@@ -29,7 +33,6 @@ Body: {"email": "email@example.com", "password": "password", "password_confirmat
 ```
 
 **User Registration Response (Failure if User's email is already in the system):**
-
 ```shell
 {
     "error": "That e-mail already exists."
@@ -37,7 +40,6 @@ Body: {"email": "email@example.com", "password": "password", "password_confirmat
 ```
 
 **User Registration Response (Failure if User's password does not match password confirmation):**
-
 ```shell
 {
     "error": "The passwords don't match"
@@ -51,7 +53,6 @@ Body: {"email": "email@example.com", "password": "password"}
 ```
 
 **User Login Response (Success):**
-
 ```shell
 {
     "data": {
@@ -87,7 +88,6 @@ Body: {"email": "email@example.com", "password": "password"}
 ```
 
 **User Login Response (Failure if User does not exist or Password is incorrect):**
-
 ```shell
 {
     "error": "Unauthorized."
@@ -109,10 +109,7 @@ Body: {"api_key": "1234567891011121",
               "position": "Employee"}
 ```
 
-
 **User Update Response (Success):**
-
-
 ```shell
 {
     "data": {
@@ -163,9 +160,35 @@ Body: {"api_key": "1234567891011121",
 ```
 
 **User Update Response (Failure if api_key is not passed in or datatype is not correct for each attribute):**
-
 ```shell
 {
     "error": "Unauthorized"
+}
+```
+
+**Get All Locations Request:**
+```shell
+GET /api/v1/locations
+```
+
+**Get All Locations Response (Success):**
+```shell
+{
+    "data": [
+        {
+            "id": "1",
+            "type": "location",
+            "attributes": {
+                "city": "N/A"
+            }
+        },
+        {
+            "id": "2",
+            "type": "location",
+            "attributes": {
+                "city": "Denver,CO"
+            }
+        }
+    ]
 }
 ```
