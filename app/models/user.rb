@@ -13,5 +13,8 @@ class User < ApplicationRecord
   def make_key
     SecureRandom.urlsafe_base64(12)
   end
-  
+
+  def get_connections(user_ids)
+    User.select(:id, :name, :email).where(id: user_ids)
+  end
 end

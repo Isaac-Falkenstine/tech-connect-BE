@@ -31,7 +31,10 @@ describe 'user login request and response' do
     params = {email: "fake@email.com", password: "password"}
     post '/api/v1/login',  params: params
 
+    parsed = JSON.parse(response.body, symbolize_names: true)
+
     expect(response).not_to be_successful
-    expect(response.body).to eq("Unauthorized")
+
+    expect(parsed[:error]).to eq("Unauthorized.")
   end
 end
