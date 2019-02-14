@@ -16,9 +16,13 @@ class Api::V1::UsersController<ApplicationController
 
   def update
     user = User.find_by(api_key: params[:api_key])
+    if user
       user.update(update_params)
 
       render json: ProfileSerializer.new(user)
+    else
+      render :json => {error: "Unauthorized"}, status: 403
+    end
   end
 
   private
