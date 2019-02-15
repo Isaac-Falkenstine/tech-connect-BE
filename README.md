@@ -201,7 +201,6 @@ GET /api/v1/positions
 **Get All Positions Response (Success):**
 ```shell
 {
-    "data": {
     "data": [
         {
             "id": "1",
@@ -219,5 +218,41 @@ GET /api/v1/positions
         }
     ]
 }
+```
+
+**Get All Employers Request:**
+```shell
+GET /api/v1/employers
+```
+
+**Get All Employers Response (Success):**
+```shell
+{
+    "data": [
+        {
+            "id": "1",
+            "type": "employer",
+            "attributes": {
+                "name": "Unemployed",
+                "site_url": "N/A"
+            }
+        },
+        {
+            "id": "2",
+            "type": "employer",
+            "attributes": {
+                "name": "Turing",
+                "site_url": "turing.io"
+            }
+        },
+        {
+            "id": "3",
+            "type": "employer",
+            "attributes": {
+                "name": "Google",
+                "site_url": "google.com"
+            }
+        }
+      ]
 }
 ```
