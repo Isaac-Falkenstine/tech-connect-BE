@@ -4,8 +4,8 @@ Location.create(city: "N/A")
 Employer.create(name: "Unemployed", site_url: "N/A")
 Position.create(job_title: "Unemployed")
 
-registered = User.create(name: "Registered Joe", email: "registered@email.com", password: "password123")
-second_user = User.create(name: "Second Joe", email: "second@email.com", password: "password123")
+registered = User.create(name: "Registered Joe", email: "registered@email.com", password: "password123", api_key: "987654321123")
+second_user = User.create(name: "Second Joe", email: "second@email.com", password: "password123", api_key: "121212343434")
 
 denver = Location.create(city: "Denver,CO")
 turing = Employer.create(name: "Turing", site_url: "turing.io")
