@@ -28,12 +28,12 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
 
 # Everyone in Denver
   4.times do
-    company = Faker::Company.name
-    employer = Employer.create(name: Faker::Company.name, site_url: "#{company}.com")
-    position = Position.create(job_title: Faker::Company.profession)
+    company = Faker::Company.unique.name
+    employer = Employer.create(name: company, site_url: "#{company}.com")
+    position = Position.create(job_title: Faker::Company.unique.profession)
 
     user = User.create(name: Faker::FunnyName.two_word_name,
-                email: Faker::Internet.email,
+                email: Faker::Internet.unique.email,
                 password: Faker::Internet.password,
                 phone_number: rand(1000000000..9999999999),
                 github: Faker::Internet.url('github.com'),
@@ -47,12 +47,13 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
   Message.create(user_id: registered.id, connection_id: user.id, status: "Confirmed", meeting_date: DateTime.new(2001,2,3,4,5,6), meeting_location: Faker::Lorem.word)
   end
   #Everyone at google
+  google = Employer.create(name: "Google", site_url: "google.com")
+
     4.times do
-      employer = Employer.create(name: "Google", site_url: "google.com")
-      position = Position.create(job_title: Faker::Company.profession)
+      position = Position.create(job_title: Faker::Company.unique.profession)
 
       user = User.create(name: Faker::FunnyName.two_word_name,
-                  email: Faker::Internet.email,
+                  email: Faker::Internet.unique.email,
                   password: Faker::Internet.password,
                   phone_number: rand(1000000000..9999999999),
                   github: Faker::Internet.url('github.com'),
@@ -60,18 +61,16 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
                   bio: Faker::Hipster.paragraph,
                   api_key: SecureRandom.urlsafe_base64(12),
                   location_id: denver.id,
-                  employer_id: employer.id,
+                  employer_id: google.id,
                   position_id: position.id)
 
       Message.create(user_id: updated.id, connection_id: user.id, status: "Confirmed", meeting_date: DateTime.new(2001,2,3,4,5,6), meeting_location: Faker::Lorem.word)
     end
     # Everyone as a software developer
+      backend = Position.create(job_title: "Backend Software Developer")
       4.times do
-        employer = Employer.create(name: "Google", site_url: "google.com")
-        position = Position.create(job_title: "Backend Software Developer")
-
         user = User.create(name: Faker::FunnyName.two_word_name,
-                    email: Faker::Internet.email,
+                    email: Faker::Internet.unique.email,
                     password: Faker::Internet.password,
                     phone_number: rand(1000000000..9999999999),
                     github: Faker::Internet.url('github.com'),
@@ -79,8 +78,8 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
                     bio: Faker::Hipster.paragraph,
                     api_key: SecureRandom.urlsafe_base64(12),
                     location_id: denver.id,
-                    employer_id: employer.id,
-                    position_id: position.id)
+                    employer_id: google.id,
+                    position_id: backend.id)
         Message.create(user_id: second_user.id, connection_id: user.id, status: "Confirmed", meeting_date: DateTime.new(2002,2,6,9,5,1), meeting_location: Faker::Lorem.word)
       end
     # end Backend Software Developer
@@ -89,10 +88,10 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
 
 
 12.times do
-  company = Faker::Company.name
-  location = Location.create(city: Faker::Address.city)
-  employer = Employer.create(name: Faker::Company.name, site_url: "#{company}.com")
-  position = Position.create(job_title: Faker::Company.profession)
+  company = Faker::Company.unique.name
+  location = Location.create(city: Faker::Address.unique.city)
+  employer = Employer.create(name: Faker::Company.unique.name, site_url: "#{company}.com")
+  position = Position.create(job_title: Faker::Company.unique.profession)
 
   User.create(name: Faker::FunnyName.two_word_name,
               email: Faker::Internet.email,
