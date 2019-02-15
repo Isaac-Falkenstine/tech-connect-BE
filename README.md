@@ -263,10 +263,10 @@ Location.create(city: "N/A")
 Employer.create(name: "Unemployed", site_url: "N/A")
 Position.create(job_title: "Unemployed")
 
-registered = User.create(name: "Registered Joe", email: "registered@email.com", password: "password123")
-second_user = User.create(name: "Second Joe", email: "second@email.com", password: "password123")
+registered = User.create(name: "Registered Joe", email: "registered@email.com", password: "password123", api_key: "987654321123")
+second_user = User.create(name: "Second Joe", email: "second@email.com", password: "password123", api_key: "192837465192")
 
-denver = Location.create(city: "Denver,CO")
+denver = Location.create(city: "Denver")
 turing = Employer.create(name: "Turing", site_url: "turing.io")
 employee = Position.create(job_title: "Backend Instructor")
 updated = User.create(
@@ -284,5 +284,4 @@ updated = User.create(
 
 message_1 = Message.create(user_id: registered.id, connection_id: updated.id, status: "Confirmed", meeting_date: DateTime.new(2001,2,3,4,5,6), meeting_location: "Starbucks on Colorado")
 message_2 = Message.create(user_id: registered.id, connection_id: second_user.id, status: "Confirmed", meeting_date: DateTime.new(2002,2,6,9,5,1), meeting_location: "Dazbog on Blake")
-
 ```
