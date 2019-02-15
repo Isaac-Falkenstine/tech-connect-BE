@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       patch '/users', to: 'users#update', as: "update_user"
 
       resources :locations, only: [:index]
+      resources :positions, only: [:index]
     end
   end
 end

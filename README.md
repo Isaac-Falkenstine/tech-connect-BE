@@ -192,3 +192,32 @@ GET /api/v1/locations
     ]
 }
 ```
+
+**Get All Positions Request:**
+```shell
+GET /api/v1/positions
+```
+
+**Get All Positions Response (Success):**
+```shell
+{
+    "data": {
+    "data": [
+        {
+            "id": "1",
+            "type": "position",
+            "attributes": {
+                "job_title": "Unemployed"
+            }
+        },
+        {
+            "id": "2",
+            "type": "position",
+            "attributes": {
+                "job_title": "Jr Engineer"
+            }
+        }
+    ]
+}
+}
+```
