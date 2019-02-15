@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
       resources :locations, only: [:index]
       resources :positions, only: [:index]
+      resources :employers, only: [:index]
     end
   end
 end
