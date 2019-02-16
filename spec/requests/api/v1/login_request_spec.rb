@@ -4,14 +4,17 @@ describe 'user login request and response' do
 
   it 'POST /api/v1/login' do
     location_1 = create(:location)
-    user = create_list(:user, 1, password: "password", location_id: location_1.id)
-    create(:user, location_id: location_1.id)
-    create(:user, location_id: location_1.id)
+    user = create_list(:user, 1, password: "password", location_id: location_1.id, name: "Bailey")
+    user_2 = create(:user, name: "Isaac", location_id: location_1.id)
+    user_3 = create(:user, location_id: location_1.id)
     create(:user, location_id: location_1.id)
     create(:user, location_id: location_1.id)
     create(:user)
 
-    message = create_list(:message, 1, user_id: user.first.id)
+
+    message = create(:message, user_id: user.first.id, connection_id: user_2.id)
+    message_2 = create(:message, user_id: user_2.id, connection_id: user.first.id)
+    message_3 = create(:message, user_id: user.first.id, connection_id: user_3.id)
     params = {email: user.first.email, password: user.first.password}
     post '/api/v1/login',  params: params
 
@@ -34,6 +37,10 @@ describe 'user login request and response' do
     expect(parsed[:data][:attributes]).to have_key(:connections)
     expect(parsed[:data][:attributes][:connections].length).to eq(1)
     expect(parsed[:data][:attributes][:suggestions].length).to eq(3)
+
+    expect(parsed[:data][:attributes][:suggestions][0][:name]).not_to eq("Isaac")
+    expect(parsed[:data][:attributes][:suggestions][1][:name]).not_to eq("Isaac")
+    expect(parsed[:data][:attributes][:suggestions][2][:name]).not_to eq("Isaac")
 
   end
   it 'POST /api/v1/login is unsuccessful if user input is invalid' do
