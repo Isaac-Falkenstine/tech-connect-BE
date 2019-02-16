@@ -5,7 +5,7 @@ class Api::V1::UsersController<ApplicationController
 
     if user.save
       if check_password
-        render json: UserSerializer.new(user)
+        render json: UserApiSerializer.new(user)
       else
         render :json => {error: "The passwords don't match"}, status: 403
       end
@@ -23,6 +23,12 @@ class Api::V1::UsersController<ApplicationController
     else
       render :json => {error: "Unauthorized"}, status: 403
     end
+  end
+
+  def index
+    users = User.all
+
+    render json: UserSerializer.new(users)
   end
 
   private
@@ -47,7 +53,7 @@ class Api::V1::UsersController<ApplicationController
 
     user_changes_params[:location_id] = Location.find_by(city: params[:location]).id
     user_changes_params[:position_id] = Position.find_by(job_title: params[:position]).id
-    user_changes_params[:employer_id] = Employer.find_by(name: params[:employer]).id 
+    user_changes_params[:employer_id] = Employer.find_by(name: params[:employer]).id
     user_changes_params
   end
 end
