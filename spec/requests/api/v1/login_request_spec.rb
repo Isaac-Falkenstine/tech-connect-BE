@@ -35,12 +35,11 @@ describe 'user login request and response' do
     expect(parsed[:data][:attributes]).to have_key(:position)
     expect(parsed[:data][:attributes]).to have_key(:employer)
     expect(parsed[:data][:attributes]).to have_key(:connections)
-    expect(parsed[:data][:attributes][:connections].length).to eq(1)
-    expect(parsed[:data][:attributes][:suggestions].length).to eq(3)
+    expect(parsed[:data][:attributes][:connections].length).to eq(2)
+    expect(parsed[:data][:attributes][:suggestions].length).to eq(2)
 
     expect(parsed[:data][:attributes][:suggestions][0][:name]).not_to eq("Isaac")
     expect(parsed[:data][:attributes][:suggestions][1][:name]).not_to eq("Isaac")
-    expect(parsed[:data][:attributes][:suggestions][2][:name]).not_to eq("Isaac")
 
   end
   it 'POST /api/v1/login is unsuccessful if user input is invalid' do

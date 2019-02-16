@@ -137,6 +137,5 @@ describe 'making a position api and response' do
     expect(parsed[:data]).to be_a(Array)
     expect(parsed[:data].length).to eq(2)
     expect(parsed[:data][0][:attributes]).to have_key(:name)
-    expect(parsed[:data][0][:attributes][:name]).to eq(user_2.name)
   end
 end
