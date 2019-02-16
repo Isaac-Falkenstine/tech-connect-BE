@@ -32,9 +32,14 @@ class Api::V1::UsersController<ApplicationController
   end
 
   def show
+    current_user = User.find_by(api_key: params[:api_key])
     user = User.find(params[:id])
 
-    render json: UserSerializer.new(user)
+    if Message.connected?(current_user.id, user.id)
+      render json: ConnectionSerializer.new(user)
+    else
+      render json: UserSerializer.new(user)
+    end
   end
 
   private
