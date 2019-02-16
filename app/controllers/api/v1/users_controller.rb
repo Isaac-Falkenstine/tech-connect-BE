@@ -32,15 +32,9 @@ class Api::V1::UsersController<ApplicationController
   end
 
   def show
-    if params.has_key?("api_key")
-      user = User.find_by(api_key: params[:api_key])
+    user = User.find(params[:id])
 
-      render json: UserSerializer.new(user)
-    else
-      user = User.find(params[:id])
-
-      render json: PrivateUserSerializer.new(user)
-    end
+    render json: UserSerializer.new(user)
   end
 
   private
