@@ -12,7 +12,7 @@ class Api::V1::Users::SearchController < ApplicationController
 private
 
   def user_params
-    params.permit(:name, :location, :employer, :position)
+    params.permit(:name, :city, :employer, :position)
   end
 
 end

@@ -26,6 +26,7 @@ Body: {"email": "email@example.com", "password": "password", "password_confirmat
         "id": "1",
         "type": "user",
         "attributes": {
+            "id": 1,
             "api_key": "7-d8JIf8BR9sdDQd"
         }
     }
@@ -60,6 +61,7 @@ Body: {"email": "email@example.com", "password": "password"}
         "type": "login",
         "attributes": {
             "api_key": null,
+            "id": 1,
             "email": "registered@email.com",
             "name": "Registered Joe",
             "github": null,
@@ -264,9 +266,24 @@ Body: {"api_key": "1234567891011121"}
 
 **Get All Users by Filter Request:**
 ```shell
-GET /api/v1/users/find?name=name
+GET /api/v1/users/find?name=first-or-last-name
 Body: {"api_key": "1234567891011121"}
-``
+```
+
+```shell
+GET /api/v1/users/find?city=city-name
+Body: {"api_key": "1234567891011121"}
+```
+
+```shell
+GET /api/v1/users/find?employer=employer-name
+Body: {"api_key": "1234567891011121"}
+```
+
+```shell
+GET /api/v1/users/find?position=position-job_title
+Body: {"api_key": "1234567891011121"}
+```
 
 **Get All Users Response (with or without filters) (Success):**
 ```shell
