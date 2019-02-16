@@ -26,6 +26,7 @@ Body: {"email": "email@example.com", "password": "password", "password_confirmat
         "id": "1",
         "type": "user",
         "attributes": {
+            "id": 1,
             "api_key": "7-d8JIf8BR9sdDQd"
         }
     }
@@ -60,6 +61,7 @@ Body: {"email": "email@example.com", "password": "password"}
         "type": "login",
         "attributes": {
             "api_key": null,
+            "id": 1,
             "email": "registered@email.com",
             "name": "Registered Joe",
             "github": null,
