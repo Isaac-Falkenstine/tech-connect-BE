@@ -52,10 +52,10 @@ describe 'making a position api and response' do
     expect(parsed[:data][0][:attributes]).to have_key(:name)
     expect(parsed[:data][0][:attributes][:name]).to eq("Bailey Diveley")
   end
-  it 'GET /api/v1/users/find?name=bailey' do
+  it 'GET /api/v1/users/find?name=bailey case insensitive' do
     user_1 = create(:user, name: "Isaac Falkenstine")
     create(:user, name: "Bailey Diveley")
-    create(:user, name: "Kaylee Bunce")
+    create(:user, name: "Kaylee Bailey")
     create(:user, name: "Kylie Stanley")
 
     params = {api_key: user_1.api_key}
@@ -66,7 +66,7 @@ describe 'making a position api and response' do
     parsed = JSON.parse(response.body, symbolize_names: true)
 
     expect(parsed[:data]).to be_a(Array)
-    expect(parsed[:data].length).to eq(1)
+    expect(parsed[:data].length).to eq(2)
     expect(parsed[:data][0][:attributes]).to have_key(:name)
     expect(parsed[:data][0][:attributes][:name]).to eq("Bailey Diveley")
   end
