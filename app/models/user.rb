@@ -19,6 +19,6 @@ class User < ApplicationRecord
   end
 
   def self.filter(params)
-    User.where("name LIKE ?," "#{params['name']}")
+    User.where("name LIKE ?", "%#{params[:name]}%")
   end
 end

@@ -13,17 +13,18 @@
 ActiveRecord::Schema.define(version: 2019_02_13_181758) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "citext"
   enable_extension "plpgsql"
 
   create_table "employers", force: :cascade do |t|
-    t.string "name"
+    t.citext "name"
     t.string "site_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "locations", force: :cascade do |t|
-    t.string "city"
+    t.citext "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,13 +40,13 @@ ActiveRecord::Schema.define(version: 2019_02_13_181758) do
   end
 
   create_table "positions", force: :cascade do |t|
-    t.string "job_title"
+    t.citext "job_title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.citext "name"
     t.string "password_digest"
     t.string "email"
     t.bigint "phone_number"

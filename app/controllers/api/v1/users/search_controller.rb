@@ -1,11 +1,12 @@
 class Api::V1::Users::SearchController < ApplicationController
 
   def index
-    users = User.filter(user_params)
-
-    #what serializer should be used for this?
-    #want to return all users basic info that meets the filter
-    render json: UserApiSerializer.new(user)
+    if current_user
+      users = User.filter(user_params)
+      render json: UserSerializer.new(users)
+    else
+      render :json => {error: "Unauthorized"}, status: 403
+    end
   end
 
 private
