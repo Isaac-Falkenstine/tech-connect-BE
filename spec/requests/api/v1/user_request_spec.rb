@@ -18,7 +18,6 @@ describe 'making a position api and response' do
     expect(parsed[:data]).to be_a(Array)
     expect(parsed[:data].length).to eq(4)
     expect(parsed[:data][0][:attributes]).to have_key(:name)
-    expect(parsed[:data][0][:attributes][:name]).to eq("Isaac Falkenstine")
   end
 
   it 'GET /api/v1/users without api_key' do

@@ -49,10 +49,12 @@ class Api::V1::UsersController<ApplicationController
   end
 
   def destroy
-    if current_user.id == params[:id].to_i
+    if current_user && current_user.id == params[:id].to_i
       user = User.find(params[:id])
       render :json => {message: "#{user.name} has been deleted"}
       user.delete
+    else
+      render :json => {error: "Unauthorized"}, status: 403
     end
   end
 
