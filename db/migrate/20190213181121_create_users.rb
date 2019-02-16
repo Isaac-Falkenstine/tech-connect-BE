@@ -1,7 +1,8 @@
 class CreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
-      t.string :name
+      enable_extension :citext
+      t.citext :name
       t.string :password_digest
       t.string :email
       t.bigint :phone_number

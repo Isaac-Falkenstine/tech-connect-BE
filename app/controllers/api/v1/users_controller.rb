@@ -50,10 +50,6 @@ class Api::V1::UsersController<ApplicationController
 
   private
 
-  def current_user
-    User.find_by(api_key: params[:api_key])
-  end
-
   def user_setup
     user = User.new(user_params)
 
