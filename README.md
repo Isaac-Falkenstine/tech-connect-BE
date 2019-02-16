@@ -82,7 +82,30 @@ Body: {"email": "email@example.com", "password": "password"}
                     "name": "Second Joe",
                     "email": "second@email.com"
                 }
-            ]
+            ],
+            "suggestions": [
+                 {
+                     "id": 10,
+                     "name": "Chuck Roast",
+                     "city": "Denver",
+                     "company": "Google",
+                     "job_title": "physicist"
+                 },
+                 {
+                     "id": 13,
+                     "name": "Pete Moss",
+                     "city": "Denver",
+                     "company": "Google",
+                     "job_title": "Backend Software Developer"
+                 },
+                 {
+                     "id": 3,
+                     "name": "Updated Joe",
+                     "city": "Denver",
+                     "company": "Turing",
+                     "job_title": "Backend Instructor"
+                 }
+             ]
         }
     }
 }
