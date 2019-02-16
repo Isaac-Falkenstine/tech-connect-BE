@@ -264,9 +264,24 @@ Body: {"api_key": "1234567891011121"}
 
 **Get All Users by Filter Request:**
 ```shell
-GET /api/v1/users/find?name=name
+GET /api/v1/users/find?name=first-or-last-name
 Body: {"api_key": "1234567891011121"}
-``
+```
+
+```shell
+GET /api/v1/users/find?city=city-name
+Body: {"api_key": "1234567891011121"}
+```
+
+```shell
+GET /api/v1/users/find?employer=employer-name
+Body: {"api_key": "1234567891011121"}
+```
+
+```shell
+GET /api/v1/users/find?position=position-job_title
+Body: {"api_key": "1234567891011121"}
+```
 
 **Get All Users Response (with or without filters) (Success):**
 ```shell
