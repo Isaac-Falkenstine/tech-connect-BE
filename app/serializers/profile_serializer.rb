@@ -8,6 +8,8 @@ class ProfileSerializer
   end
 
   attribute :suggestions do |object|
-    object.get_suggestions(object)
+    if object.location_id
+      object.get_suggestions(object)
+    end
   end
 end

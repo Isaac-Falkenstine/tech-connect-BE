@@ -15,6 +15,7 @@ describe 'user login request and response' do
     message = create(:message, user_id: user.first.id, connection_id: user_2.id)
     message_2 = create(:message, user_id: user_2.id, connection_id: user.first.id)
     message_3 = create(:message, user_id: user.first.id, connection_id: user_3.id)
+    message_4 = create(:message, user_id: user_2.id, connection_id: user_3.id)
     params = {email: user.first.email, password: user.first.password}
     post '/api/v1/login',  params: params
 
@@ -36,7 +37,7 @@ describe 'user login request and response' do
     expect(parsed[:data][:attributes]).to have_key(:employer)
     expect(parsed[:data][:attributes]).to have_key(:connections)
     expect(parsed[:data][:attributes][:connections].length).to eq(2)
-    expect(parsed[:data][:attributes][:suggestions].length).to eq(2)
+    expect(parsed[:data][:attributes][:suggestions].length).to eq(3)
 
     expect(parsed[:data][:attributes][:suggestions][0][:name]).not_to eq("Isaac")
     expect(parsed[:data][:attributes][:suggestions][1][:name]).not_to eq("Isaac")
