@@ -39,7 +39,7 @@ class Api::V1::UsersController<ApplicationController
     else
       user = User.find(params[:id])
 
-      render json: UserSerializer.new(user)
+      render json: PrivateUserSerializer.new(user)
     end
   end
 
