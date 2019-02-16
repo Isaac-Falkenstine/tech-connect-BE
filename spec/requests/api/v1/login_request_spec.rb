@@ -18,6 +18,7 @@ describe 'user login request and response' do
     expect(response).to be_successful
     parsed = JSON.parse(response.body, symbolize_names: true)
 
+
     expect(parsed[:data][:attributes]).to have_key(:api_key)
     expect(parsed[:data][:attributes][:api_key]).to eq(user.first.api_key)
     expect(parsed[:data][:attributes]).to have_key(:email)
@@ -33,6 +34,7 @@ describe 'user login request and response' do
     expect(parsed[:data][:attributes]).to have_key(:connections)
     expect(parsed[:data][:attributes][:connections].length).to eq(1)
     expect(parsed[:data][:attributes][:suggestions].length).to eq(3)
+
   end
   it 'POST /api/v1/login is unsuccessful if user input is invalid' do
     params = {email: "fake@email.com", password: "password"}
