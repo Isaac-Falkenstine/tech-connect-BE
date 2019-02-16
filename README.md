@@ -262,7 +262,13 @@ GET /api/v1/users
 Body: {"api_key": "1234567891011121"}
 ```
 
-**Get All Users Response (Success):**
+**Get All Users by Filter Request:**
+```shell
+GET /api/v1/users/find?name=name
+Body: {"api_key": "1234567891011121"}
+``
+
+**Get All Users Response (with or without filters) (Success):**
 ```shell
 {
     "data": [
@@ -451,7 +457,6 @@ Body: {"api_key": "1234567891011121"}
     "error": "Unauthorized"
 }
 ```
-
 
 **Seed Data:**
 ```shell
