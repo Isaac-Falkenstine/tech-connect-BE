@@ -256,6 +256,115 @@ GET /api/v1/employers
       ]
 }
 ```
+**Get All Users Request:**
+```shell
+GET /api/v1/users
+```
+
+**Get All Users Response (Success):**
+```shell
+{
+    "data": [
+        {
+            "id": "3",
+            "type": "user",
+            "attributes": {
+                "api_key": "1234567891011121",
+                "email": "updated@email.com",
+                "name": "Updated Joe",
+                "github": "github.com/user/joe",
+                "linkedin": "linkedin.com/users/joe",
+                "bio": "Hey everyone, my name is Joe! I'm really trying to get into the tech world! HELP!",
+                "phone_number": 3031234567,
+                "location": {
+                    "id": 2,
+                    "city": "Denver,CO",
+                    "created_at": "2019-02-15T23:11:40.016Z",
+                    "updated_at": "2019-02-15T23:11:40.016Z"
+                },
+                "position": {
+                    "id": 2,
+                    "job_title": "Backend Instructor",
+                    "created_at": "2019-02-15T23:11:40.020Z",
+                    "updated_at": "2019-02-15T23:11:40.020Z"
+                },
+                "employer": {
+                    "id": 2,
+                    "name": "Turing",
+                    "site_url": "turing.io",
+                    "created_at": "2019-02-15T23:11:40.018Z",
+                    "updated_at": "2019-02-15T23:11:40.018Z"
+                }
+            }
+        },
+        {
+            "id": "4",
+            "type": "user",
+            "attributes": {
+                "api_key": "TF08lHZfTLhU5ifY",
+                "email": "jarod@luettgen.info",
+                "name": "Lily Livard",
+                "github": "http://github.com/yaeko_mills",
+                "linkedin": "http://linkedin.com/shane_grant",
+                "bio": "Hella swag keytar health freegan chicharrones. Forage viral chicharrones butcher cray kitsch jean shorts. Irony hoodie bespoke.",
+                "phone_number": 8289620063,
+                "location": {
+                    "id": 2,
+                    "city": "Denver,CO",
+                    "created_at": "2019-02-15T23:11:40.016Z",
+                    "updated_at": "2019-02-15T23:11:40.016Z"
+                },
+                "position": {
+                    "id": 3,
+                    "job_title": "philosopher",
+                    "created_at": "2019-02-15T23:11:40.361Z",
+                    "updated_at": "2019-02-15T23:11:40.361Z"
+                },
+                "employer": {
+                    "id": 3,
+                    "name": "Wisoky Group",
+                    "site_url": "Wisoky Group.com",
+                    "created_at": "2019-02-15T23:11:40.353Z",
+                    "updated_at": "2019-02-15T23:11:40.353Z"
+                }
+            }
+        },
+        {
+            "id": "5",
+            "type": "user",
+            "attributes": {
+                "api_key": "6opkqd2dIhkkR0vn",
+                "email": "maryjane@kuhlman.name",
+                "name": "Terry Bull",
+                "github": "http://github.com/grisel",
+                "linkedin": "http://linkedin.com/trey.ryan",
+                "bio": "Viral post-ironic cray park pbr&b offal helvetica letterpress. Chia ugh plaid xoxo loko green juice. Church-key kickstarter thundercats chicharrones. Kickstarter blue bottle hashtag. Helvetica sriracha bitters.",
+                "phone_number": 8795796491,
+                "location": {
+                    "id": 2,
+                    "city": "Denver,CO",
+                    "created_at": "2019-02-15T23:11:40.016Z",
+                    "updated_at": "2019-02-15T23:11:40.016Z"
+                },
+                "position": {
+                    "id": 4,
+                    "job_title": "astronomer",
+                    "created_at": "2019-02-15T23:11:40.441Z",
+                    "updated_at": "2019-02-15T23:11:40.441Z"
+                },
+                "employer": {
+                    "id": 4,
+                    "name": "Halvorson LLC",
+                    "site_url": "Halvorson LLC.com",
+                    "created_at": "2019-02-15T23:11:40.439Z",
+                    "updated_at": "2019-02-15T23:11:40.439Z"
+                }
+            }
+        }
+    ]
+}
+
+```
 
 **Seed Data:**
 ```shell
