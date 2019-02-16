@@ -10,7 +10,6 @@ describe 'deleting a user request and response' do
     delete "/api/v1/users/#{user_1.id}", params: params
 
     expect(response).to be_successful
-    expect(response).to have_http_status(202)
 
     parsed = JSON.parse(response.body, symbolize_names: true)
 

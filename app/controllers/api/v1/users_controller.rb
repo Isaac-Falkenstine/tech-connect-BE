@@ -48,6 +48,14 @@ class Api::V1::UsersController<ApplicationController
     end
   end
 
+  def destroy
+    if current_user.id == params[:id].to_i
+      user = User.find(params[:id])
+      render :json => {message: "#{user.name} has been deleted"}
+      user.delete
+    end
+  end
+
   private
 
   def user_setup
