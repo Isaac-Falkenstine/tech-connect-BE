@@ -458,6 +458,26 @@ Body: {"api_key": "1234567891011121"}
 }
 ```
 
+**DELETE A Single User Request:**
+```shell
+DELETE /api/v1/users/:id
+Body: {"api_key": "1234567891011121"}
+```
+
+**Delete A Single User Response (Success):**
+```shell
+{
+    "message": "Registered Joe has been deleted"
+}
+```
+
+**Delete User Response (Failure if api_key is not passed in or if the api_key user does not match the id passed in):**
+```shell
+{
+    "error": "Unauthorized"
+}
+```
+
 **Seed Data:**
 ```shell
 Location.create(city: "N/A")
