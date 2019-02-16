@@ -17,4 +17,8 @@ class User < ApplicationRecord
   def get_connections(user_ids)
     User.select(:id, :name, :email).where(id: user_ids)
   end
+
+  def self.filter(params)
+    User.where("name LIKE ?," "#{params['name']}")
+  end
 end
