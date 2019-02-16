@@ -3,7 +3,14 @@ require 'rails_helper'
 describe 'user login request and response' do
 
   it 'POST /api/v1/login' do
-    user = create_list(:user, 1, password: "password")
+    location_1 = create(:location)
+    user = create_list(:user, 1, password: "password", location_id: location_1.id)
+    create(:user, location_id: location_1.id)
+    create(:user, location_id: location_1.id)
+    create(:user, location_id: location_1.id)
+    create(:user, location_id: location_1.id)
+    create(:user)
+
     message = create_list(:message, 1, user_id: user.first.id)
     params = {email: user.first.email, password: user.first.password}
     post '/api/v1/login',  params: params
@@ -25,7 +32,7 @@ describe 'user login request and response' do
     expect(parsed[:data][:attributes]).to have_key(:employer)
     expect(parsed[:data][:attributes]).to have_key(:connections)
     expect(parsed[:data][:attributes][:connections].length).to eq(1)
-
+    expect(parsed[:data][:attributes][:suggestions].length).to eq(3)
   end
   it 'POST /api/v1/login is unsuccessful if user input is invalid' do
     params = {email: "fake@email.com", password: "password"}
@@ -37,4 +44,5 @@ describe 'user login request and response' do
 
     expect(parsed[:error]).to eq("Unauthorized.")
   end
+
 end
