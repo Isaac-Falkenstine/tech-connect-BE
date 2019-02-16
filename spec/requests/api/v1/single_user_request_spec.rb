@@ -44,4 +44,16 @@ describe 'getting a user request and response' do
 
     expect(parsed[:data][:attributes][:name]).to eq("Bailey Diveley")
   end
+
+  it 'GET /api/v1/users/id with no api_key' do
+    user_1 = create(:user, name: "Isaac Falkenstine")
+    user_2 = create(:user, name: "Bailey Diveley")
+
+    get "/api/v1/users/#{user_2.id}"
+
+    expect(response).not_to be_successful
+    parsed = JSON.parse(response.body, symbolize_names: true)
+
+    expect(parsed[:error]).to eq("Unauthorized")
+  end
 end

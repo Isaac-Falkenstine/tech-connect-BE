@@ -269,13 +269,10 @@ GET /api/v1/users
             "id": "3",
             "type": "user",
             "attributes": {
-                "api_key": "1234567891011121",
-                "email": "updated@email.com",
                 "name": "Updated Joe",
                 "github": "github.com/user/joe",
                 "linkedin": "linkedin.com/users/joe",
                 "bio": "Hey everyone, my name is Joe! I'm really trying to get into the tech world! HELP!",
-                "phone_number": 3031234567,
                 "location": {
                     "id": 2,
                     "city": "Denver,CO",
@@ -301,13 +298,10 @@ GET /api/v1/users
             "id": "4",
             "type": "user",
             "attributes": {
-                "api_key": "TF08lHZfTLhU5ifY",
-                "email": "jarod@luettgen.info",
                 "name": "Lily Livard",
                 "github": "http://github.com/yaeko_mills",
                 "linkedin": "http://linkedin.com/shane_grant",
                 "bio": "Hella swag keytar health freegan chicharrones. Forage viral chicharrones butcher cray kitsch jean shorts. Irony hoodie bespoke.",
-                "phone_number": 8289620063,
                 "location": {
                     "id": 2,
                     "city": "Denver,CO",
@@ -333,13 +327,10 @@ GET /api/v1/users
             "id": "5",
             "type": "user",
             "attributes": {
-                "api_key": "6opkqd2dIhkkR0vn",
-                "email": "maryjane@kuhlman.name",
                 "name": "Terry Bull",
                 "github": "http://github.com/grisel",
                 "linkedin": "http://linkedin.com/trey.ryan",
                 "bio": "Viral post-ironic cray park pbr&b offal helvetica letterpress. Chia ugh plaid xoxo loko green juice. Church-key kickstarter thundercats chicharrones. Kickstarter blue bottle hashtag. Helvetica sriracha bitters.",
-                "phone_number": 8795796491,
                 "location": {
                     "id": 2,
                     "city": "Denver,CO",
