@@ -259,6 +259,7 @@ GET /api/v1/employers
 **Get All Users Request:**
 ```shell
 GET /api/v1/users
+Body: {"api_key": "1234567891011121"}
 ```
 
 **Get All Users Response (Success):**
@@ -356,6 +357,101 @@ GET /api/v1/users
 }
 
 ```
+
+**All Users Response (Failure if api_key is not passed in):**
+```shell
+{
+    "error": "Unauthorized"
+}
+```
+
+
+**Get A Single User Request:**
+```shell
+GET /api/v1/users/:id
+Body: {"api_key": "1234567891011121"}
+```
+
+**Get A Single User Response (Success, With Connections):**
+```shell
+{
+    "data": {
+        "id": "4",
+        "type": "connection",
+        "attributes": {
+            "email": "brett@okeefe.io",
+            "phone_number": 9906780031,
+            "name": "Haywood Jashootmee",
+            "github": "http://github.com/ursula.schumm",
+            "linkedin": "http://linkedin.com/saul",
+            "bio": "Semiotics kinfolk sartorial. Keffiyeh vinyl cleanse hella distillery. Yolo xoxo chicharrones wolf paleo meggings direct trade. Wayfarers mixtape migas blue bottle pour-over. Flannel pug tacos kombucha.",
+            "location": {
+                "id": 2,
+                "city": "Denver",
+                "created_at": "2019-02-16T16:32:09.669Z",
+                "updated_at": "2019-02-16T16:32:09.669Z"
+            },
+            "position": {
+                "id": 3,
+                "job_title": "musician",
+                "created_at": "2019-02-16T16:32:09.998Z",
+                "updated_at": "2019-02-16T16:32:09.998Z"
+            },
+            "employer": {
+                "id": 3,
+                "name": "Senger Inc",
+                "site_url": "Senger Inc.com",
+                "created_at": "2019-02-16T16:32:09.989Z",
+                "updated_at": "2019-02-16T16:32:09.989Z"
+            }
+        }
+    }
+}
+
+```
+
+**Get A Single User Response (Success, Without A Connection):**
+```shell
+{
+    "data": {
+        "id": "14",
+        "type": "user",
+        "attributes": {
+            "name": "Midas Well",
+            "github": "http://github.com/lowell_hane",
+            "linkedin": "http://linkedin.com/lynette.abshire",
+            "bio": "Mixtape yolo banh mi readymade mustache kitsch occupy leggings. Tousled asymmetrical craft beer poutine salvia bicycle rights. Trust fund yuccie pug hashtag ennui. Synth fanny pack beard semiotics bicycle rights craft beer dreamcatcher. Aesthetic selvage hammock bespoke.",
+            "location": {
+                "id": 2,
+                "city": "Denver",
+                "created_at": "2019-02-16T16:32:09.669Z",
+                "updated_at": "2019-02-16T16:32:09.669Z"
+            },
+            "position": {
+                "id": 11,
+                "job_title": "Backend Software Developer",
+                "created_at": "2019-02-16T16:32:10.530Z",
+                "updated_at": "2019-02-16T16:32:10.530Z"
+            },
+            "employer": {
+                "id": 7,
+                "name": "Google",
+                "site_url": "google.com",
+                "created_at": "2019-02-16T16:32:10.270Z",
+                "updated_at": "2019-02-16T16:32:10.270Z"
+            }
+        }
+    }
+}
+```
+
+**Single User Response (Failure if api_key is not passed in):**
+```shell
+{
+    "error": "Unauthorized"
+}
+```
+
 
 **Seed Data:**
 ```shell
