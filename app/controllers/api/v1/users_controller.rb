@@ -15,23 +15,44 @@ class Api::V1::UsersController<ApplicationController
   end
 
   def update
-    user = User.find_by(api_key: params[:api_key])
-    if user
-      user.update(update_params)
+    if current_user
+      current_user.update(update_params)
 
-      render json: ProfileSerializer.new(user)
+      render json: ProfileSerializer.new(current_user)
     else
       render :json => {error: "Unauthorized"}, status: 403
     end
   end
 
   def index
-    users = User.all
+    if current_user
+      users = User.all
 
-    render json: UserSerializer.new(users)
+      render json: UserSerializer.new(users)
+    else
+      render :json => {error: "Unauthorized"}, status: 403
+    end
+  end
+
+  def show
+    if current_user
+      user = User.find(params[:id])
+
+      if Message.connected?(current_user.id, user.id)
+        render json: ConnectionSerializer.new(user)
+      else
+        render json: UserSerializer.new(user)
+      end
+    else
+      render :json => {error: "Unauthorized"}, status: 403
+    end
   end
 
   private
+
+  def current_user
+    User.find_by(api_key: params[:api_key])
+  end
 
   def user_setup
     user = User.new(user_params)
