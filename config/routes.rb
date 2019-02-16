@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:create, :index]
+      resources :users, only: [:create, :index, :show]
       post '/login', to: 'login#create', as: "login"
       patch '/users', to: 'users#update', as: "update_user"
 
