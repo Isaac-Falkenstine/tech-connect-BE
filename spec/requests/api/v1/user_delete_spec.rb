@@ -4,6 +4,8 @@ describe 'deleting a user request and response' do
 
   it 'DELETE /api/v1/users/:id with api_key' do
     user_1 = create(:user, name: "Isaac Falkenstine")
+    user_2 = create(:user, name: "Bailey Diveley")
+    message = create(:message, user_id: user_1.id, connection_id: user_2.id)
 
     params = {api_key: user_1.api_key}
 
@@ -13,7 +15,8 @@ describe 'deleting a user request and response' do
 
     parsed = JSON.parse(response.body, symbolize_names: true)
 
-    expect(User.all.length).to eq(0)
+    expect(User.all.length).to eq(1)
+    expect(Message.all.length).to eq(0)
     expect(parsed[:message]).to eq("Isaac Falkenstine has been deleted")
   end
 

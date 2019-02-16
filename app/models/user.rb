@@ -6,7 +6,7 @@ class User < ApplicationRecord
   belongs_to :position, optional: true
   belongs_to :employer, optional: true
 
-  has_many :messages
+  has_many :messages, dependent: :destroy
   has_many :connections, through: :messages
 
 
