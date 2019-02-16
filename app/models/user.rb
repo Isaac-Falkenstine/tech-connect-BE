@@ -19,6 +19,16 @@ class User < ApplicationRecord
   end
 
   def self.filter(params)
-    User.where("name LIKE ?", "%#{params[:name]}%")
+    key = params.keys.first
+    value = params[key].gsub('-', ' ')
+    if key == "name"
+      User.where("name LIKE ?", "%#{value}%")
+    elsif key == "city"
+      User.joins(:location).where("locations.#{key} LIKE ?", "%#{value}%")
+    elsif key == "employer"
+      User.joins(:employer).where("employers.name LIKE ?", "%#{value}%")
+    elsif key == "position"
+      User.joins(:position).where("positions.job_title LIKE ?", "%#{value}%")
+    end
   end
 end
