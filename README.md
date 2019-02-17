@@ -129,9 +129,9 @@ Body: {"api_key": "1234567891011121",
               "github": "github.com/user/joe",
               "linkedin": "linkedin.com/user/joe",
               "phone_number": "7204908123",
-              "location": "Denver,CO",
+              "location": "Denver",
               "employer": "Turing",
-              "position": "Employee"}
+              "position": "Backend Instructor"}
 ```
 
 **User Update Response (Success):**
@@ -150,13 +150,13 @@ Body: {"api_key": "1234567891011121",
             "phone_number": 7204908123,
             "location": {
                 "id": 2,
-                "city": "Denver,CO",
+                "city": "Denver",
                 "created_at": "2019-02-14T21:53:44.430Z",
                 "updated_at": "2019-02-14T21:53:44.430Z"
             },
             "position": {
                 "id": 2,
-                "job_title": "Employee",
+                "job_title": "Backend Instructor",
                 "created_at": "2019-02-14T21:53:44.434Z",
                 "updated_at": "2019-02-14T21:53:44.434Z"
             },
@@ -211,7 +211,7 @@ GET /api/v1/locations
             "id": "2",
             "type": "location",
             "attributes": {
-                "city": "Denver,CO"
+                "city": "Denver"
             }
         }
     ]
@@ -322,7 +322,7 @@ Body: {"api_key": "1234567891011121"}
                 "bio": "Hey everyone, my name is Joe! I'm really trying to get into the tech world! HELP!",
                 "location": {
                     "id": 2,
-                    "city": "Denver,CO",
+                    "city": "Denver",
                     "created_at": "2019-02-15T23:11:40.016Z",
                     "updated_at": "2019-02-15T23:11:40.016Z"
                 },
@@ -351,7 +351,7 @@ Body: {"api_key": "1234567891011121"}
                 "bio": "Hella swag keytar health freegan chicharrones. Forage viral chicharrones butcher cray kitsch jean shorts. Irony hoodie bespoke.",
                 "location": {
                     "id": 2,
-                    "city": "Denver,CO",
+                    "city": "Denver",
                     "created_at": "2019-02-15T23:11:40.016Z",
                     "updated_at": "2019-02-15T23:11:40.016Z"
                 },
@@ -380,7 +380,7 @@ Body: {"api_key": "1234567891011121"}
                 "bio": "Viral post-ironic cray park pbr&b offal helvetica letterpress. Chia ugh plaid xoxo loko green juice. Church-key kickstarter thundercats chicharrones. Kickstarter blue bottle hashtag. Helvetica sriracha bitters.",
                 "location": {
                     "id": 2,
-                    "city": "Denver,CO",
+                    "city": "Denver",
                     "created_at": "2019-02-15T23:11:40.016Z",
                     "updated_at": "2019-02-15T23:11:40.016Z"
                 },
