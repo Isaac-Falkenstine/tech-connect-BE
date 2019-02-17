@@ -5,4 +5,27 @@
 <h5>Name: <%= @user.name %><h5>
 <h5>Bio: <%= @user.bio %><h5>
 <a href=<%=@user.github %>>Github Profile</a>
-<a href=<%=@user.linkedin %>>LinkedIn Profile</a>
+<a href=<%=@user.linkedin %>>LinkedIn Profile</a><br><br>
+
+<form id="form1" action="http://localhost:3000/api/v1/users/<%=@user.id%>/messages?email=<%=@email%>&status=confirmed" method="post">
+      <div id="location">
+          <input type="radio" id="radio1" name="location" value="<%= @data[:meeting_1] %>">
+          <label for="radio1"> <%= @data[:meeting_1] %></label><br>
+          <input type="radio" id="radio2" name="location" value="<%= @data[:meeting_2] %>">
+          <label for="radio2"><%= @data[:meeting_2] %></label><br>
+          <input type="radio" id="radio3" name="location" value="<%= @data[:meeting_3] %>">
+          <label for="radio3"><%= @data[:meeting_3] %></label><br>
+      </div>
+      <div id="meeting-time">
+        <input type="radio" id="radio1" name="time" value="<%= @data[:datetime_1] %>">
+        <label for="radio1"> <%= @data[:datetime_1] %></label><br>
+        <input type="radio" id="radio2" name="time" value="<%= @data[:datetime_2] %>">
+        <label for="radio2"><%= @data[:datetime_2] %></label><br>
+        <input type="radio" id="radio3" name="time" value="<%= @data[:datetime_3] %>">
+        <label for="radio3"><%= @data[:datetime_3] %></label><br>
+      </div>
+
+      <div>
+          <button type="submit" name="Submit">Submit</button><br>
+      </div>
+  </form>

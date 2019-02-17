@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/users/find', to: 'users/search#index'
 
-      resources :users, only: [:create, :index, :show, :destroy]
+      resources :users, only: [:create, :index, :show, :destroy] do
+        resources :messages, only: [:create]
+      end
 
       post '/login', to: 'login#create', as: "login"
       patch '/users', to: 'users#update', as: "update_user"

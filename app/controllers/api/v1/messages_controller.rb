@@ -7,7 +7,11 @@ class Api::V1::MessagesController < ApplicationController
     else
       render :json => {error: "Unauthorized"}, status: 403
     end
-
   end
+
+  def create
+
+    binding.pry
+  end 
 
 end
