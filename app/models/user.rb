@@ -18,6 +18,10 @@ class User < ApplicationRecord
     User.select(:id, :name, :email).where(id: user_ids)
   end
 
+  def self.get_name(id)
+    User.find(id).name
+  end
+
   def get_suggestions(user)
     User.select("users.id, users.name, locations.city AS city, employers.name AS company, positions.job_title").joins(:employer, :location, :position).where("users.location_id = #{user.location_id}").where("users.id != #{user.id}").shuffle().first(3)
     # User.select("users.id, users.name, locations.city AS city, employers.name AS company, positions.job_title").joins(:employer, :location, :position).joins("LEFT OUTER JOIN messages ON users.id = messages.connection_id").where("users.location_id = #{user.location_id}").where("users.id != #{user.id}").where("messages.id IS null").shuffle().first(3)

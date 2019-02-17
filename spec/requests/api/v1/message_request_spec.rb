@@ -19,7 +19,8 @@ describe 'making a message api and response' do
     expect(parsed[:data][0][:attributes]).to have_key(:status)
     expect(parsed[:data][0][:attributes]).to have_key(:meeting_date)
     expect(parsed[:data][0][:attributes]).to have_key(:meeting_location)
-    #should also return connection_id's name
-    expect(parsed[:data][0][:attributes]).to have_key(:connection_id)
+
+    expect(parsed[:data][0][:attributes]).to have_key(:sender)
+    expect(parsed[:data][0][:attributes]).to have_key(:receiver)
   end
 end

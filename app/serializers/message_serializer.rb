@@ -1,11 +1,14 @@
 class MessageSerializer
   include FastJsonapi::ObjectSerializer
 
-  attributes :user_id, :status, :meeting_date, :meeting_location, :created_at, :connection_id
+  attributes :sender, :receiver, :status, :meeting_date, :meeting_location, :created_at
 
-  # attribute :connection_id do |object|
-  #   binding.pry
-  #   object.get_user(object.connection_id)
-  # end
+  attribute :sender do |object|
+    User.get_name(object.user_id)
+  end
+
+  attribute :receiver do |object|
+    User.get_name(object.connection_id)
+  end
 
 end
