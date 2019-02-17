@@ -14,6 +14,8 @@ Rails.application.routes.draw do
       resources :employers, only: [:index]
       resources :messages, only: [:index]
 
+      post "/mailers", to: "mailers#create"
+
     end
   end
 end
