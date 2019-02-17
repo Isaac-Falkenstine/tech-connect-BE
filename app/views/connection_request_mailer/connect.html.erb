@@ -4,5 +4,5 @@
 
 <h5>Name: <%= @user.name %><h5>
 <h5>Bio: <%= @user.bio %><h5>
-<%= link_to "GitHub Profile", @user.github %><br>
-<%= link_to "LinkedIn Profile", @user.linkedin %>
+<a href=<%=@user.github %>>Github Profile</a>
+<a href=<%=@user.linkedin %>>LinkedIn Profile</a>

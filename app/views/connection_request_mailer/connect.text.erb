@@ -1,8 +1,8 @@
-<h3><%= @user.name %>is requesting a connection with you through TechConnect</h3>
+<h3><%= @user.name %> is requesting a connection with you through TechConnect</h3>
 
-<h4>Learn more about your potential connection here, and if you're interested in meeting, please complete the below form to confirm meeting time and date.<br>If you are not interested or unavailable to connect at this time, please click on the Raincheck button instead.</h4>
+<h4>Learn more about your potential connection here, and if you're interested in meeting, please complete the below form to confirm meeting time and date.<br><br>If you are not interested or unavailable to connect at this time, please click on the Raincheck button instead.</h4>
 
 <h5>Name: <%= @user.name %><h5>
 <h5>Bio: <%= @user.bio %><h5>
-<%= link_to "GitHub Profile", @user.github %>
-<%= link_to "LinkedIn Profile", @user.linkedin %>
+<a href=<%=@user.github %>>Github Profile</a>
+<a href=<%=@user.linkedin %>>LinkedIn Profile</a>
