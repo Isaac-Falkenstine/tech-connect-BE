@@ -23,4 +23,13 @@ describe 'making a message api and response' do
     expect(parsed[:data][0][:attributes]).to have_key(:sender)
     expect(parsed[:data][0][:attributes]).to have_key(:receiver)
   end
+  it 'GET /api/v1/messages without api_key' do
+
+    get '/api/v1/messages'
+
+    expect(response).not_to be_successful
+    parsed = JSON.parse(response.body, symbolize_names: true)
+
+    expect(parsed[:error]).to eq("Unauthorized")
+  end
 end
