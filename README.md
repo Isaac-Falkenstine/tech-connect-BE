@@ -131,7 +131,7 @@ Body: {"api_key": "1234567891011121",
               "phone_number": "7204908123",
               "location": "Denver",
               "employer": "Turing",
-              "position": "Employee"}
+              "position": "Backend Instructor"}
 ```
 
 **User Update Response (Success):**
@@ -156,7 +156,7 @@ Body: {"api_key": "1234567891011121",
             },
             "position": {
                 "id": 2,
-                "job_title": "Employee",
+                "job_title": "Backend Instructor",
                 "created_at": "2019-02-14T21:53:44.434Z",
                 "updated_at": "2019-02-14T21:53:44.434Z"
             },
