@@ -3,8 +3,8 @@ require "rails_helper"
 describe "Mailers Request" do
 
   it 'can send an email with meeting request info' do
-    user = create(:user, name: "Bailey")
-    user_2 = create(:user, name: "Isaac")
+    user = create(:user, name: "Bailey", email: "bailey@email.com")
+    user_2 = create(:user, name: "Isaac", email: "isaac@email.com")
     params = {
       "api_key": "#{user.api_key}",
       "connection_id": "#{user_2.id}",
