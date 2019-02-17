@@ -15,4 +15,9 @@ class Message < ApplicationRecord
       return false
     end
   end
+
+  def self.find_by_user(user)
+    Message.where("user_id = #{user.id} OR connection_id = #{user.id}")
+  end
+
 end
