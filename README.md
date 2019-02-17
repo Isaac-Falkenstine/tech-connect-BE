@@ -575,6 +575,35 @@ Body: {"api_key": "1234567891011121"}
 }
 ```
 
+**Send Email to Connect Request:**
+```shell
+POST /api/v1/mailers
+Body: {
+  "api_key" : "1234567891011121",
+  "connection_id": "1",
+  "datetime_1": "2019-02-16 18:17:43",
+  "datetime_2": "2019-02-17 18:17:43",
+  "datetime_3": "2019-02-18 18:17:43",
+  "meeting_1": "Starbucks on Broadway",
+  "meeting_2": "Dazbog on 17th",
+  "meeting_3": "Coffehouse on Champa"
+}
+```
+
+**Send Email Response (Success):**
+```shell
+{
+    "success": "Email Sent"
+}
+```
+
+*Send Email Response (Failure if api_key is not passed):**
+```shell
+{
+    "error": "Unauthorized"
+}
+```
+
 **Seed Data:**
 ```shell
 Location.create(city: "N/A")
