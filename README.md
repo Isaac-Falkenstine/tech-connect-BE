@@ -518,6 +518,63 @@ Body: {"api_key": "1234567891011121"}
 }
 ```
 
+**Get All Messages Request:**
+```shell
+GET /api/v1/messages
+Body: {"api_key": "1234567891011121"}
+```
+
+**Get All Messages Response (Success):**
+```shell
+{
+    "data": [
+        {
+            "id": "1",
+            "type": "message",
+            "attributes": {
+                "sender": "Registered Joe",
+                "receiver": "Updated Joe",
+                "status": "Confirmed",
+                "meeting_date": "2001-02-03T04:05:06.000Z",
+                "meeting_location": "Starbucks on Colorado",
+                "created_at": "2019-02-16T18:17:43.939Z"
+            }
+        },
+        {
+            "id": "7",
+            "type": "message",
+            "attributes": {
+                "sender": "Updated Joe",
+                "receiver": "Royal Payne",
+                "status": "Confirmed",
+                "meeting_date": "2001-02-03T04:05:06.000Z",
+                "meeting_location": "ut",
+                "created_at": "2019-02-16T18:17:44.482Z"
+            }
+        },
+        {
+            "id": "8",
+            "type": "message",
+            "attributes": {
+                "sender": "Updated Joe",
+                "receiver": "Brooke Trout",
+                "status": "Confirmed",
+                "meeting_date": "2001-02-03T04:05:06.000Z",
+                "meeting_location": "accusantium",
+                "created_at": "2019-02-16T18:17:44.548Z"
+            }
+        }
+    ]
+}
+```
+
+*Get All Messages Response (Failure if api_key is not passed):**
+```shell
+{
+    "error": "Unauthorized"
+}
+```
+
 **Seed Data:**
 ```shell
 Location.create(city: "N/A")
