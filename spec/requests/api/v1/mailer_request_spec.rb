@@ -16,6 +16,6 @@ describe "Mailers Request" do
       "meeting_1": "Coffehouse on Champa"
     }
 
-    post "api/v1/mailers", params: params
+    post "/api/v1/mailers", params: params
   end
 end
