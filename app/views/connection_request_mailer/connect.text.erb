@@ -8,20 +8,20 @@
 <a href=<%=@user.linkedin %>>LinkedIn Profile</a><br><br>
 
 <form id="form1" action="http://localhost:3000/api/v1/users/<%=@user.id%>/messages?email=<%=@email%>&status=confirmed" method="post">
-      <div id="location">
-          <input type="radio" id="radio1" name="location" value="<%= @data[:meeting_1] %>">
+      <div id="meeting_location">
+          <input type="radio" id="radio1" name="meeting_location" value="<%= @data[:meeting_1] %>">
           <label for="radio1"> <%= @data[:meeting_1] %></label><br>
-          <input type="radio" id="radio2" name="location" value="<%= @data[:meeting_2] %>">
+          <input type="radio" id="radio2" name="meeting_location" value="<%= @data[:meeting_2] %>">
           <label for="radio2"><%= @data[:meeting_2] %></label><br>
-          <input type="radio" id="radio3" name="location" value="<%= @data[:meeting_3] %>">
-          <label for="radio3"><%= @data[:meeting_3] %></label><br>
+          <input type="radio" id="radio3" name="meeting_location" value="<%= @data[:meeting_3] %>">
+          <label for="radio3"><%= @data[:meeting_3] %></label><br><br>
       </div>
-      <div id="meeting-time">
-        <input type="radio" id="radio1" name="time" value="<%= @data[:datetime_1] %>">
+      <div id="meeting_date">
+        <input type="radio" id="radio1" name="meeting_date" value="<%= @data[:datetime_1] %>">
         <label for="radio1"> <%= @data[:datetime_1] %></label><br>
-        <input type="radio" id="radio2" name="time" value="<%= @data[:datetime_2] %>">
+        <input type="radio" id="radio2" name="meeting_date" value="<%= @data[:datetime_2] %>">
         <label for="radio2"><%= @data[:datetime_2] %></label><br>
-        <input type="radio" id="radio3" name="time" value="<%= @data[:datetime_3] %>">
+        <input type="radio" id="radio3" name="meeting_date" value="<%= @data[:datetime_3] %>">
         <label for="radio3"><%= @data[:datetime_3] %></label><br>
       </div>
 
