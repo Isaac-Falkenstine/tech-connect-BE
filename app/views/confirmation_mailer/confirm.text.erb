@@ -1,1 +1,18 @@
-Test confirm 
+<h3>You have a confirmed meeting!  Please review meeting details and contact information below.</h3>
+
+Meeting Details:
+<ul>
+  <li>Meeting Location: <%= @data[:meeting_location] %></li>
+  <li>Meeting Time: <%= @data[:meeting_date] %></li>
+</ul>
+
+Contact Details:
+<ul>
+  <li>Requested Name: <%= @user.name %></li>
+  <li>Requested Email: <%= @user.email %></li>
+  <li>Requested Phone Number: <%= @user.phone_number %></li>
+  <br>
+  <li>Confirmer Name: <%= @connection.name %></li>
+  <li>Confirmer Email: <%= @connection.email %></li>
+  <li>Confirmer Phone Number: <%= @connection.phone_number %></li>
+</ul>
