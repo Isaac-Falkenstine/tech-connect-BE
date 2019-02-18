@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'connection-request@tech-connect.com'
+  default from: 'no-reply@tech-connect.com'
   layout 'mailer'
 end

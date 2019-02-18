@@ -3,7 +3,7 @@
 <p>Name: <%= @user.name %></p>
 <p>Bio: <%= @user.bio %></p>
 <a href=<%=@user.github %>>Github Profile</a><br>
-<a href=<%=@user.linkedin %>>LinkedIn Profile</a><br><br>
+<a href=<%=@user.linkedin %>>LinkedIn Profile</a><br>
 
 <form id="form1" action="http://localhost:3000/api/v1/users/<%=@user.id%>/messages?email=<%=@email%>&status=confirmed" method="post">
   <div id="meeting_location">
@@ -13,7 +13,7 @@
       <input type="radio" id="radio2" name="meeting_location" value="<%= @data[:meeting_2] %>">
       <label for="radio2"><%= @data[:meeting_2] %></label><br>
       <input type="radio" id="radio3" name="meeting_location" value="<%= @data[:meeting_3] %>">
-      <label for="radio3"><%= @data[:meeting_3] %></label><br><br>
+      <label for="radio3"><%= @data[:meeting_3] %></label><br>
   </div>
   <div id="meeting_date">
     <p><b>Meeting Time Options:</b></p>
