@@ -5,7 +5,7 @@
 <a href=<%=@user.github %>>Github Profile</a><br>
 <a href=<%=@user.linkedin %>>LinkedIn Profile</a><br>
 
-<form id="form1" action="http://localhost:3000/api/v1/users/<%=@user.id%>/messages?email=<%=@email%>&status=confirmed" method="post">
+<form id="form1" action="<%= api_v1_user_messages_url(user_id: @user.id, email: @connection.email, status: 'confirmed')%>" method="post">
   <div id="meeting_location">
       <p><b>Meeting Place Options:</b></p>
       <input type="radio" id="radio1" name="meeting_location" value="<%= @data[:meeting_1] %>">
