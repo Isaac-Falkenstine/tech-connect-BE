@@ -13,7 +13,6 @@ gem 'sendgrid-ruby'
 gem 'figaro'
 gem 'rack-cors'
 gem 'travis'
-gem 'mailcatcher'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
