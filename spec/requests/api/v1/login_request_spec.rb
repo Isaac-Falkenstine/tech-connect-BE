@@ -25,8 +25,6 @@ describe 'user login request and response' do
 
     expect(parsed[:data][:attributes]).to have_key(:api_key)
     expect(parsed[:data][:attributes][:api_key]).to eq(user.first.api_key)
-    expect(parsed[:data][:attributes]).to have_key(:email)
-    expect(parsed[:data][:attributes][:email]).to eq(user.first.email)
     expect(parsed[:data][:attributes]).to have_key(:name)
     expect(parsed[:data][:attributes]).to have_key(:github)
     expect(parsed[:data][:attributes]).to have_key(:linkedin)
