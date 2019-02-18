@@ -5,7 +5,7 @@
 <a href=<%=@user.github %>>Github Profile</a><br>
 <a href=<%=@user.linkedin %>>LinkedIn Profile</a><br>
 
-<form id="form1" action="<%= new_api_v1_user_message_url(user_id: @user.id, email: @connection.email, status: 'confirmed')%>" method="get">
+<form id="form1" action="<%= new_api_v1_user_message_url(:user_id => @user.id, :email => @connection.email)%>" method="get">
   <div id="meeting_location">
       <p><b>Meeting Place Options:</b></p>
       <input type="radio" id="radio1" name="meeting_location" value="<%= @data[:meeting_1] %>">
@@ -26,9 +26,9 @@
   </div>
 
   <div>
-    <br><button type="submit" name="make-meeting">Make Meeting</button><br>
+    <br><button type="submit" name= "<%=@connection.email %>-confirmed" >Make Meeting</button><br>
 
     <h4>If you are not interested or unavailable to connect at this time, please click on the Raincheck button instead.<h4>
-    <button type="submit" name="rain-check">Rain Check</button><br>
+    <button type="submit" name= "<%=@connection.email %>-declined"> Rain Check</button><br>
   </div>
 </form>

@@ -32,27 +32,27 @@ describe 'making a message api and response' do
 
     expect(parsed[:error]).to eq("Unauthorized")
   end
-  it 'GET users/:id/messages/new?email=email&status=confirmed' do
+  it 'GET users/:id/messages/new' do
     user_1 = create(:user, email: "sending@gmail.com")
     user_2 = create(:user, email: "test@gmail.com")
-    params = {"meeting_location"=>"Starbucks on Broadway", "meeting_date"=>"02-07-2019 06:17", "make-meeting"=>""
+    params = {"meeting_location"=>"Starbucks on Broadway", "meeting_date"=>"02-07-2019 06:17", "#{user_2.email}-confirmed"=>""
     }
     expect(Message.where(user_id: user_1.id).length).to eq(0)
 
-    get "/api/v1/users/#{user_1.id}/messages/new?email=#{user_2.email}&status=confirmed", params: params
+    get "/api/v1/users/#{user_1.id}/messages/new", params: params
 
     expect(Message.where(user_id: user_1.id).length).to eq(1)
     expect(Message.where(user_id: user_1.id).last.status).to eq("confirmed")
   end
 
-  it 'GET users/:id/messages/new?email=email&status=declined' do
+  it 'GET users/:id/messages/new' do
     user_1 = create(:user, email: "sending@gmail.com")
     user_2 = create(:user, email: "test@gmail.com")
-    params = {"meeting_location"=>"Starbucks on Broadway", "meeting_date"=>"02-07-2019 06:17", "rainc-heck"=>""
+    params = {"meeting_location"=>"Starbucks on Broadway", "meeting_date"=>"02-07-2019 06:17", "#{user_2.email}-declined" => ""
     }
     expect(Message.where(user_id: user_1.id).length).to eq(0)
 
-    get "/api/v1/users/#{user_1.id}/messages/new?email=#{user_2.email}&status=declined", params: params
+    get "/api/v1/users/#{user_1.id}/messages/new", params: params
 
     expect(Message.where(user_id: user_1.id).length).to eq(1)
     expect(Message.where(user_id: user_1.id).last.status).to eq("declined")
