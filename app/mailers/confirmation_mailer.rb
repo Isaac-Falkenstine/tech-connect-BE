@@ -1,15 +1,18 @@
 class ConfirmationMailer < ApplicationMailer
 
   def confirm(data)
-    binding.pry
-    @email = User.find(data[:connection_id]).email
-    @user = User.find_by(api_key: data[:api_key])
+    @user_email = User.find(data[:user_id]).email
+    @connection_email = User.find(data[:connection_id]).email
     @data = data
-    mail(to: @email, subject: "#{@user.name} is requesting a connection")
+    mail(to: @user_email, subject: "You have a confirmed meeting with #{@connection_email}")
+    mail(to: @connection_email, subject: "You have a confirmed meeting with #{@user_email}")
   end
 
   def decline(data)
-
+    @user_email = User.find(data[:user_id]).email
+    @connection_name = User.find(data[:connection_id]).name
+    @data = data
+    mail(to: @user_email, subject: "#{@connection_name} must Raincheck your requested meeting")
   end
 
 end

@@ -10,18 +10,18 @@ class Api::V1::MessagesController < ApplicationController
   end
 
   def create
-    message = Message.create(message_params
+    message = Message.create(message_params)
     if message.status == "confirmed"
       ConfirmationMailer.confirm(message_params).deliver_now
     else
       ConfirmationMailer.decline(message_params).deliver_now
-    end 
+    end
   end
 
 private
   def message_params
     if params.has_key?("make-meeting")
-      update_info = params.permit(:meeting_location, :meeting_date, :user_id)
+      update_info = params.permit(:meeting_location, :meeting_date, :user_id, :status)
       id = User.where(email: params[:email])[0].id
       update_info[:connection_id] =id
       return update_info
