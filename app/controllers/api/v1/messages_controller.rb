@@ -20,23 +20,20 @@ class Api::V1::MessagesController < ApplicationController
 
 private
   def message_params
+    id = User.where(email: find_email(params.keys)).first.id
     if params.keys.any? { |k| k.include?("confirmed") }
       update_info = params.permit(:meeting_location, :meeting_date, :user_id, :status)
       update_info[:status] = "confirmed"
-      id = User.where(email: find_email(params.keys)).first.id
       update_info[:connection_id] = id
       update_info[:meeting_date] = format_date(params[:meeting_date])
-      return update_info
     else
       update_info = params.permit(:user_id)
-      id = User.where(email: find_email(params.keys)).first.id
       update_info[:connection_id] = id
       update_info[:status] = "declined"
       update_info[:meeting_location] = "N/A"
       update_info[:meeting_date] = DateTime.new(0000,1,1,1,1,1)
-
-      return update_info
     end
+    return update_info
   end
 
   def find_email(keys)
