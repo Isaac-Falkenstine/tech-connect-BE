@@ -1,32 +1,34 @@
-<h3><%= @user.name %> is requesting a connection with you through TechConnect</h3>
+<h3><%= @user.name %> is requesting a meeting with you through TechConnect</h3>
 
-<h4>Learn more about your potential connection here, and if you're interested in meeting, please complete the below form to confirm meeting time and date.<br><br>If you are not interested or unavailable to connect at this time, please click on the Raincheck button instead.</h4>
-
-<h5>Name: <%= @user.name %><h5>
-<h5>Bio: <%= @user.bio %><h5>
-<a href=<%=@user.github %>>Github Profile</a>
-<a href=<%=@user.linkedin %>>LinkedIn Profile</a><br><br>
+<p>Name: <%= @user.name %></p>
+<p>Bio: <%= @user.bio %></p>
+<a href=<%=@user.github %>>Github Profile</a><br>
+<a href=<%=@user.linkedin %>>LinkedIn Profile</a><br>
 
 <form id="form1" action="http://localhost:3000/api/v1/users/<%=@user.id%>/messages?email=<%=@email%>&status=confirmed" method="post">
-      <div id="meeting_location">
-          <input type="radio" id="radio1" name="meeting_location" value="<%= @data[:meeting_1] %>">
-          <label for="radio1"> <%= @data[:meeting_1] %></label><br>
-          <input type="radio" id="radio2" name="meeting_location" value="<%= @data[:meeting_2] %>">
-          <label for="radio2"><%= @data[:meeting_2] %></label><br>
-          <input type="radio" id="radio3" name="meeting_location" value="<%= @data[:meeting_3] %>">
-          <label for="radio3"><%= @data[:meeting_3] %></label><br><br>
-      </div>
-      <div id="meeting_date">
-        <input type="radio" id="radio1" name="meeting_date" value="<%= @data[:datetime_1] %>">
-        <label for="radio1"> <%= @data[:datetime_1] %></label><br>
-        <input type="radio" id="radio2" name="meeting_date" value="<%= @data[:datetime_2] %>">
-        <label for="radio2"><%= @data[:datetime_2] %></label><br>
-        <input type="radio" id="radio3" name="meeting_date" value="<%= @data[:datetime_3] %>">
-        <label for="radio3"><%= @data[:datetime_3] %></label><br>
-      </div>
+  <div id="meeting_location">
+      <p><b>Meeting Place Options:</b></p>
+      <input type="radio" id="radio1" name="meeting_location" value="<%= @data[:meeting_1] %>">
+      <label for="radio1"> <%= @data[:meeting_1] %></label><br>
+      <input type="radio" id="radio2" name="meeting_location" value="<%= @data[:meeting_2] %>">
+      <label for="radio2"><%= @data[:meeting_2] %></label><br>
+      <input type="radio" id="radio3" name="meeting_location" value="<%= @data[:meeting_3] %>">
+      <label for="radio3"><%= @data[:meeting_3] %></label><br>
+  </div>
+  <div id="meeting_date">
+    <p><b>Meeting Time Options:</b></p>
+    <input type="radio" id="radio1" name="meeting_date" value="<%= @data[:datetime_1] %>">
+    <label for="radio1"> <%= @data[:datetime_1] %></label><br>
+    <input type="radio" id="radio2" name="meeting_date" value="<%= @data[:datetime_2] %>">
+    <label for="radio2"><%= @data[:datetime_2] %></label><br>
+    <input type="radio" id="radio3" name="meeting_date" value="<%= @data[:datetime_3] %>">
+    <label for="radio3"><%= @data[:datetime_3] %></label><br>
+  </div>
 
-      <div>
-          <button type="submit" name="make-meeting">Make Meeting</button><br>
-          <button type="submit" name="rain-check">Rain Check</button><br>
-      </div>
-  </form>
+  <div>
+    <br><button type="submit" name="make-meeting">Make Meeting</button><br>
+
+    <h4>If you are not interested or unavailable to connect at this time, please click on the Raincheck button instead.<h4>
+    <button type="submit" name="rain-check">Rain Check</button><br>
+  </div>
+</form>
