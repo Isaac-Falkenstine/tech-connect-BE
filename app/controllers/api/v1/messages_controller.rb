@@ -13,8 +13,10 @@ class Api::V1::MessagesController < ApplicationController
     message = Message.create(message_params)
     if message.status == "confirmed"
       ConfirmationMailer.confirm(message_params).deliver_now
+      render :json => "You have confirmed your meeting"
     else
       ConfirmationMailer.decline(message_params).deliver_now
+      render :json => "You have declined the meeting request"
     end
   end
 
