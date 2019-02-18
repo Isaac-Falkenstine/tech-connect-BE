@@ -9,7 +9,7 @@ class Api::V1::MessagesController < ApplicationController
     end
   end
 
-  def create
+  def new
     message = Message.create(message_params)
     if message.status == "confirmed"
       ConfirmationMailer.confirm(message_params).deliver_now

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       get '/users/find', to: 'users/search#index'
 
       resources :users, only: [:create, :index, :show, :destroy] do
-        resources :messages, only: [:create]
+        resources :messages, only: [:new]
       end
 
       post '/login', to: 'login#create', as: "login"

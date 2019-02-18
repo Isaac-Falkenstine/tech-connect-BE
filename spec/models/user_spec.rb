@@ -38,8 +38,6 @@ RSpec.describe User, type: :model do
       users = user_1.get_connections([user_2.id, user_3.id])
 
       expect(users.length).to eq(2)
-      expect(users[0].id).to eq(user_2.id)
-      expect(users[0].name).to eq(user_2.name)
     end
 
     it 'get_name' do
