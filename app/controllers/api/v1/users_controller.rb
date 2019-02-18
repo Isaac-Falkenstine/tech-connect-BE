@@ -2,7 +2,6 @@ class Api::V1::UsersController<ApplicationController
 
   def create
     user = user_setup
-
     if user.save
       if check_password
         render json: UserApiSerializer.new(user)

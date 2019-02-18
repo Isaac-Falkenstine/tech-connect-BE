@@ -40,7 +40,6 @@ RSpec.describe User, type: :model do
       expect(users.length).to eq(2)
       expect(users[0].id).to eq(user_2.id)
       expect(users[0].name).to eq(user_2.name)
-      expect(users[0].email).to eq(user_2.email)
     end
 
     it 'get_name' do

@@ -73,14 +73,18 @@ Body: {"email": "email@example.com", "password": "password"}
             "employer": null,
             "connections": [
                 {
-                    "id": 2,
-                    "name": "Updated Joe",
-                    "email": "updated@email.com"
+                  "id": 11,
+                  "name": "Iona Ford",
+                  "city": "Denver",
+                  "company": "Google",
+                  "job_title": "attorney at law"
                 },
                 {
-                    "id": 3,
-                    "name": "Second Joe",
-                    "email": "second@email.com"
+                  "id": 8,
+                  "name": "Ty Tannick",
+                  "city": "Denver",
+                  "company": "Google",
+                  "job_title": "librarian"
                 }
             ],
             "suggestions": [
@@ -601,6 +605,24 @@ Body: {
 ```shell
 {
     "error": "Unauthorized"
+}
+```
+
+**Post Confirmation Message Request:**
+```shell
+POST /api/v1/users/:id/messages?email=email&status=confirmed
+Body: { "meeting_location": "Starbucks on Broadway",
+        "meeting_date": "02-07-2019 06:17",
+        "make-meeting": ""
+}
+```
+
+**Post Decline Message Request:**
+```shell
+POST /api/v1/users/:id/messages?email=email&status=declined
+Body: { "meeting_location": "N/A",
+        "meeting_date": "00-00-0000 00:00",
+        "rain-check": ""
 }
 ```
 

@@ -9,13 +9,12 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :connections, through: :messages
 
-
   def make_key
     SecureRandom.urlsafe_base64(12)
   end
 
   def get_connections(user_ids)
-    User.select(:id, :name, :email).where(id: user_ids)
+    User.select("users.id, users.name, locations.city AS city, employers.name AS company, positions.job_title").joins(:employer, :location, :position).where(id: user_ids)
   end
 
   def self.get_name(id)

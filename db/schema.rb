@@ -33,10 +33,11 @@ ActiveRecord::Schema.define(version: 2019_02_13_181758) do
     t.string "status"
     t.datetime "meeting_date"
     t.string "meeting_location"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.integer "connection_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "positions", force: :cascade do |t|
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(version: 2019_02_13_181758) do
     t.index ["position_id"], name: "index_users_on_position_id"
   end
 
+  add_foreign_key "messages", "users"
   add_foreign_key "users", "employers"
   add_foreign_key "users", "locations"
   add_foreign_key "users", "positions"
