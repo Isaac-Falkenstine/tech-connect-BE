@@ -1,17 +1,42 @@
-# TechConnect
+# TechConnect - Backend
 
-**Production Base URL:**
+## Introduction
+Tech-Connect is a 100% test-covered Rails application that provides multiple API endpoints for a front-end React Native application by the same name (https://github.com/KylieStanley/tech-connect).  The combined applications provide a Cold Outreach service for the Denver tech population looking for an opportunity to network with industry professionals.  The application streamlines the emailing and scheduling process for the user in order to set up a coffee meeting with potential connection.  The application provides ease of use for both the user requesting the coffee meeting and the user accepting the request.
+
+## Project Board
+https://waffle.io/Isaac-Falkenstine/tech-connect-BE
+
+## Setup (from CLI)
+* git clone git@github.com:Isaac-Falkenstine/tech-connect-BE.git
+* bundle install
+* rake db:{drop,create,migrate,seed}
+* rails s (will spin up local server at localhost:3000)
+* Use browser to visit simple 'GET' endpoints or utilize Postman(https://www.getpostman.com/)
+* rails c (gives CLI access to local instance of database)
+
+## Running Tests (from CLI)
+* rails s (will spin up local server)
+* rspec (will run all tests in /spec directory)
+* To test sending mail using mailcatcher:
+  * type mailcatcher in CLI
+  * copy/paste http://127.0.0.1:xxxx into browser
+  * use Postman (https://www.getpostman.com/) to send POST requests to mailers & messages endpoints
+  * mailcatcher will 'catch' emails sent through these requests
+
+## Production Base URL:
 ```shell
 https://tech-connect-be.herokuapp.com
 ```
 
-**Local Base URL:**
+## Local Base URL:
 ```shell
 http://localhost:3000
 ```
 
-**Database Schema**
+## Database Schema
 ![alt text](/assets/schema.png)
+
+## Endpoints
 
 **User Registration Request:**
 ```shell
@@ -640,7 +665,7 @@ Body: { "meeting_location": "N/A",
 }
 ```
 
-**Seed Data:**
+## Seed Data:
 ```shell
 Location.create(city: "N/A")
 Employer.create(name: "Unemployed", site_url: "N/A")
@@ -669,7 +694,22 @@ message_1 = Message.create(user_id: registered.id, connection_id: updated.id, st
 message_2 = Message.create(user_id: registered.id, connection_id: second_user.id, status: "Confirmed", meeting_date: DateTime.new(2002,2,6,9,5,1), meeting_location: "Dazbog on Blake")
 ```
 
-**Email Templates**
+## Email Templates
 ![alt text](/assets/request_email.png)
 ![alt text](/assets/confirm_email.png)
 ![alt text](/assets/raincheck_email.png)
+
+## Built With
+* Ruby
+* Rails
+* Postgresql
+* Fast JSON API
+* Sendgrid
+* Figaro
+* Travis CI
+* Rspec
+* Mailcatcher
+
+# Developer
+* Bailey Diveley, Github: Bdiveley
+* Isaac Falkenstine, Github: Isaac-Falkenstine
