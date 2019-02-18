@@ -14,8 +14,7 @@ class User < ApplicationRecord
   end
 
   def get_connections(user_ids)
-    #add more attributes: location, employer, position
-    User.select(:id, :name).where(id: user_ids)
+    User.select("users.id, users.name, locations.city AS city, employers.name AS company, positions.job_title").joins(:employer, :location, :position).where(id: user_ids)
   end
 
   def self.get_name(id)

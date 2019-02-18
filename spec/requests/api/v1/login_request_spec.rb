@@ -37,6 +37,12 @@ describe 'user login request and response' do
     expect(parsed[:data][:attributes]).to have_key(:employer)
     expect(parsed[:data][:attributes]).to have_key(:connections)
     expect(parsed[:data][:attributes][:connections].length).to eq(2)
+    expect(parsed[:data][:attributes][:connections][0]).to have_key(:id)
+    expect(parsed[:data][:attributes][:connections][0]).to have_key(:name)
+    expect(parsed[:data][:attributes][:connections][0]).to have_key(:city)
+    expect(parsed[:data][:attributes][:connections][0]).to have_key(:company)
+    expect(parsed[:data][:attributes][:connections][0]).to have_key(:job_title)
+
     expect(parsed[:data][:attributes][:suggestions].length).to eq(3)
 
   end
