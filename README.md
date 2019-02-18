@@ -617,12 +617,26 @@ Body: { "meeting_location": "Starbucks on Broadway",
 }
 ```
 
+**Confirm Email Response (Success):**
+```shell
+{
+    "You have confirmed your meeting"
+}
+```
+
 **Post Decline Message Request:**
 ```shell
 POST /api/v1/users/:id/messages?email=email&status=declined
 Body: { "meeting_location": "N/A",
         "meeting_date": "00-00-0000 00:00",
         "rain-check": ""
+}
+```
+
+**Decline Email Response (Success):**
+```shell
+{
+    "You have declined the meeting request"
 }
 ```
 
@@ -654,3 +668,8 @@ updated = User.create(
 message_1 = Message.create(user_id: registered.id, connection_id: updated.id, status: "Confirmed", meeting_date: DateTime.new(2001,2,3,4,5,6), meeting_location: "Starbucks on Colorado")
 message_2 = Message.create(user_id: registered.id, connection_id: second_user.id, status: "Confirmed", meeting_date: DateTime.new(2002,2,6,9,5,1), meeting_location: "Dazbog on Blake")
 ```
+
+**Email Templates**
+![alt text](/assets/request_email.png)
+![alt text](/assets/confirm_email.png)
+![alt text](/assets/raincheck_email.png)
