@@ -24,6 +24,7 @@ private
       update_info = params.permit(:meeting_location, :meeting_date, :user_id, :status)
       id = User.where(email: params[:email])[0].id
       update_info[:connection_id] =id
+      update_info[:meeting_date] = format_date(params[:meeting_date])
       return update_info
     else
       update_info = params.permit(:user_id)
@@ -35,5 +36,12 @@ private
 
       return update_info
     end
+  end
+
+  def format_date(string)
+    array = string.split(" ")
+    element = array.first.split("-")
+    first_element = element.rotate(-1)
+    first_element.join("-") + " #{array.last}"
   end
 end

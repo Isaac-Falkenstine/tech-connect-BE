@@ -32,4 +32,16 @@ describe 'making a message api and response' do
 
     expect(parsed[:error]).to eq("Unauthorized")
   end
+  it 'POST users/:id/messages?email=email&status=confirmed' do
+    user_1 = create(:user, email: "sending@gmail.com")
+    user_2 = create(:user, email: "test@gmail.com")
+    params = {"meeting_location"=>"Starbucks on Broadway", "meeting_date"=>"02-07-2019 06:17", "make-meeting"=>""
+    }
+    expect(user_1.messages.length).to eq(0)
+
+    post "/api/v1/users/#{user_1.id}/messages?email=#{user_2.email}&status=confirmed", params: params
+
+    binding.pry
+    expect(user_1.messages.length).to eq(1)
+  end
 end
