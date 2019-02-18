@@ -10,7 +10,12 @@ class Api::V1::MessagesController < ApplicationController
   end
 
   def create
-    Message.create(message_params)
+    message = Message.create(message_params
+    if message.status == "confirmed"
+      ConfirmationMailer.confirm(message_params).deliver_now
+    else
+      ConfirmationMailer.decline(message_params).deliver_now
+    end 
   end
 
 private
@@ -26,7 +31,7 @@ private
       update_info[:connection_id] =id
       update_info[:status] = "declined"
       update_info[:meeting_location] = "N/A"
-      update_info[:meeting_date] = DateTime.new(2000,1,1,1,1,1)
+      update_info[:meeting_date] = DateTime.new(0000,1,1,1,1,1)
 
       return update_info
     end
