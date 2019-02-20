@@ -16,7 +16,8 @@ describe 'making a user api and response' do
               phone_number: 7204908123,
               location: "Denver,CO",
               employer: "Turing School for Software & Desgin",
-              position: "Backend Instructor"}
+              position: "Backend Instructor",
+              github: "https://github.com/Isaac-Falkenstine"}
 
     patch '/api/v1/users',  params: params
 
