@@ -83,58 +83,68 @@ Body: {"email": "email@example.com", "password": "password"}
 {
     "data": {
         "id": "1",
-        "type": "login",
+        "type": "profile",
         "attributes": {
-            "api_key": null,
+            "api_key": "987654321123",
             "id": 1,
             "email": "registered@email.com",
             "name": "Registered Joe",
-            "github": null,
-            "linkedin": null,
-            "bio": null,
-            "phone_number": null,
-            "location": null,
-            "position": null,
-            "employer": null,
+            "github": "github.com/user/joe",
+            "linkedin": "linkedin.com/users/joe",
+            "bio": "Hey everyone, my name is Registered Joe! I'm really trying to get into the tech world! HELP!",
+            "phone_number": 3031234567,
+            "location": {
+                "id": 2,
+                "city": "Denver",
+                "created_at": "2019-02-20T01:30:25.522Z",
+                "updated_at": "2019-02-20T01:30:25.522Z"
+            },
+            "position": {
+                "id": 2,
+                "job_title": "Backend Instructor",
+                "created_at": "2019-02-20T01:30:25.527Z",
+                "updated_at": "2019-02-20T01:30:25.527Z"
+            },
+            "employer": {
+                "id": 2,
+                "name": "Turing",
+                "site_url": "turing.io",
+                "created_at": "2019-02-20T01:30:25.524Z",
+                "updated_at": "2019-02-20T01:30:25.524Z"
+            },
             "connections": [
                 {
-                  "id": 11,
-                  "name": "Iona Ford",
-                  "city": "Denver",
-                  "company": "Google",
-                  "job_title": "attorney at law"
+                    "id": 3,
+                    "name": "Updated Joe",
+                    "city": "Denver",
+                    "company": "Turing",
+                    "job_title": "Backend Instructor"
                 },
                 {
-                  "id": 8,
-                  "name": "Ty Tannick",
-                  "city": "Denver",
-                  "company": "Google",
-                  "job_title": "librarian"
+                    "id": 5,
+                    "name": "Anne Ville",
+                    "city": "Denver",
+                    "company": "Beatty, Muller and Heller",
+                    "job_title": "interpreter"
                 }
             ],
             "suggestions": [
-                 {
-                     "id": 10,
-                     "name": "Chuck Roast",
-                     "city": "Denver",
-                     "company": "Google",
-                     "job_title": "physicist"
-                 },
-                 {
-                     "id": 13,
-                     "name": "Pete Moss",
-                     "city": "Denver",
-                     "company": "Google",
-                     "job_title": "Backend Software Developer"
-                 },
-                 {
-                     "id": 3,
-                     "name": "Updated Joe",
-                     "city": "Denver",
-                     "company": "Turing",
-                     "job_title": "Backend Instructor"
-                 }
-             ]
+                {
+                    "id": 12,
+                    "name": "Colin Allcars",
+                    "city": "Denver",
+                    "company": "Google",
+                    "job_title": "Backend Software Developer"
+                },
+                {
+                    "id": 15,
+                    "name": "Will Wynn",
+                    "city": "Denver",
+                    "company": "Google",
+                    "job_title": "Backend Software Developer"
+                }
+            ],
+            "photo": "https://robohash.org/molestiaedoloreassumenda.png?size=300x300&set=set1"
         }
     }
 }
@@ -671,8 +681,31 @@ Location.create(city: "N/A")
 Employer.create(name: "Unemployed", site_url: "N/A")
 Position.create(job_title: "Unemployed")
 
-registered = User.create(name: "Registered Joe", email: "registered@email.com", password: "password123", api_key: "987654321123")
-second_user = User.create(name: "Second Joe", email: "second@email.com", password: "password123", api_key: "192837465192")
+registered = User.create(name: "Registered Joe",
+                        email: "registered@email.com",
+                        password: "password123",
+                        api_key: "987654321123",
+                        phone_number: 3031234567,
+                        github:"github.com/user/joe",
+                        linkedin: "linkedin.com/users/joe",
+                        bio: "Hey everyone, my name is Registered Joe! I'm really trying to get into the tech world! HELP!",
+                        location_id: denver.id,
+                        employer_id: turing.id,
+                        position_id: employee.id,
+                        photo: Faker::Avatar.image)
+
+betsy = User.create(name: "Betsy Joe",
+                          email: "betsy@email.com",
+                          password: "password123",
+                          api_key: "192837465192",
+                          phone_number: 3031234567,
+                          github:"github.com/user/betsy",
+                          linkedin: "linkedin.com/users/betsy",
+                          bio: "Hey everyone, my name is Betsy Joe! I'm really trying to get into the tech world! HELP!",
+                          location_id: denver.id,
+                          employer_id: turing.id,
+                          position_id: employee.id,
+                          photo: Faker::Avatar.image)
 
 denver = Location.create(city: "Denver")
 turing = Employer.create(name: "Turing", site_url: "turing.io")
@@ -688,10 +721,11 @@ updated = User.create(
             api_key: "1234567891011121",
             location_id: denver.id,
             employer_id: turing.id,
-            position_id: employee.id)
+            position_id: employee.id,
+            photo: Faker::Avatar.image)
 
 message_1 = Message.create(user_id: registered.id, connection_id: updated.id, status: "Confirmed", meeting_date: DateTime.new(2001,2,3,4,5,6), meeting_location: "Starbucks on Colorado")
-message_2 = Message.create(user_id: registered.id, connection_id: second_user.id, status: "Confirmed", meeting_date: DateTime.new(2002,2,6,9,5,1), meeting_location: "Dazbog on Blake")
+message_2 = Message.create(user_id: registered.id, connection_id: betsy.id, status: "Confirmed", meeting_date: DateTime.new(2002,2,6,9,5,1), meeting_location: "Dazbog on Blake")
 ```
 
 ## Email Templates

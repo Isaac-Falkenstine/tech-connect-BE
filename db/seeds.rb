@@ -4,12 +4,37 @@ Location.create(city: "N/A")
 Employer.create(name: "Unemployed", site_url: "N/A")
 Position.create(job_title: "Unemployed")
 
-registered = User.create(name: "Registered Joe", email: "registered@email.com", password: "password123", api_key: "987654321123")
-second_user = User.create(name: "Second Joe", email: "second@email.com", password: "password123", api_key: "192837465192")
-
 denver = Location.create(city: "Denver")
 turing = Employer.create(name: "Turing", site_url: "turing.io")
 employee = Position.create(job_title: "Backend Instructor")
+
+registered = User.create(name: "Registered Joe",
+                        email: "registered@email.com",
+                        password: "password123",
+                        api_key: "987654321123",
+                        phone_number: 3031234567,
+                        github:"github.com/user/joe",
+                        linkedin: "linkedin.com/users/joe",
+                        bio: "Hey everyone, my name is Registered Joe! I'm really trying to get into the tech world! HELP!",
+                        location_id: denver.id,
+                        employer_id: turing.id,
+                        position_id: employee.id,
+                        photo: Faker::Avatar.image)
+
+betsy = User.create(name: "Betsy Joe",
+                          email: "betsy@email.com",
+                          password: "password123",
+                          api_key: "192837465192",
+                          phone_number: 3031234567,
+                          github:"github.com/user/betsy",
+                          linkedin: "linkedin.com/users/betsy",
+                          bio: "Hey everyone, my name is Betsy Joe! I'm really trying to get into the tech world! HELP!",
+                          location_id: denver.id,
+                          employer_id: turing.id,
+                          position_id: employee.id,
+                          photo: Faker::Avatar.image)
+
+
 updated = User.create(
             name: "Updated Joe",
             email: "updated@email.com",
@@ -21,10 +46,11 @@ updated = User.create(
             api_key: "1234567891011121",
             location_id: denver.id,
             employer_id: turing.id,
-            position_id: employee.id)
+            position_id: employee.id,
+            photo: Faker::Avatar.image)
 
 message_1 = Message.create(user_id: registered.id, connection_id: updated.id, status: "Confirmed", meeting_date: DateTime.new(2001,2,3,4,5,6), meeting_location: "Starbucks on Colorado")
-message_2 = Message.create(user_id: registered.id, connection_id: second_user.id, status: "Confirmed", meeting_date: DateTime.new(2002,2,6,9,5,1), meeting_location: "Dazbog on Blake")
+message_2 = Message.create(user_id: registered.id, connection_id: betsy.id, status: "Confirmed", meeting_date: DateTime.new(2002,2,6,9,5,1), meeting_location: "Dazbog on Blake")
 
 # Everyone in Denver
   4.times do
@@ -42,7 +68,8 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
                 api_key: SecureRandom.urlsafe_base64(12),
                 location_id: denver.id,
                 employer_id: employer.id,
-                position_id: position.id)
+                position_id: position.id,
+                photo: Faker::Avatar.image)
 
   Message.create(user_id: registered.id, connection_id: user.id, status: "Confirmed", meeting_date: DateTime.new(2001,2,3,4,5,6), meeting_location: Faker::Lorem.word)
   end
@@ -62,7 +89,8 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
                   api_key: SecureRandom.urlsafe_base64(12),
                   location_id: denver.id,
                   employer_id: google.id,
-                  position_id: position.id)
+                  position_id: position.id,
+                  photo: Faker::Avatar.image)
 
       Message.create(user_id: updated.id, connection_id: user.id, status: "Confirmed", meeting_date: DateTime.new(2001,2,3,4,5,6), meeting_location: Faker::Lorem.word)
     end
@@ -79,8 +107,10 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
                     api_key: SecureRandom.urlsafe_base64(12),
                     location_id: denver.id,
                     employer_id: google.id,
-                    position_id: backend.id)
-        Message.create(user_id: second_user.id, connection_id: user.id, status: "Confirmed", meeting_date: DateTime.new(2002,2,6,9,5,1), meeting_location: Faker::Lorem.word)
+                    position_id: backend.id,
+                    photo: Faker::Avatar.image)
+
+        Message.create(user_id: betsy.id, connection_id: user.id, status: "Confirmed", meeting_date: DateTime.new(2002,2,6,9,5,1), meeting_location: Faker::Lorem.word)
       end
     # end Backend Software Developer
   # end google
@@ -103,5 +133,6 @@ message_2 = Message.create(user_id: registered.id, connection_id: second_user.id
               api_key: SecureRandom.urlsafe_base64(12),
               location_id: location.id,
               employer_id: employer.id,
-              position_id: position.id)
+              position_id: position.id,
+              photo: Faker::Avatar.image)
 end
