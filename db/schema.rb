@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2019_02_13_181758) do
     t.string "linkedin"
     t.string "bio"
     t.string "api_key"
+    t.string "photo"
     t.bigint "location_id"
     t.bigint "employer_id"
     t.bigint "position_id"

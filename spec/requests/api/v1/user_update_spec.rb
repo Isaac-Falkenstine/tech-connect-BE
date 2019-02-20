@@ -29,7 +29,9 @@ describe 'making a user api and response' do
     expect(user.email).to eq('email@gmail.com')
     expect(user.bio).to eq('Hey guys!')
     expect(user.phone_number).to eq(7204908123)
-    expect(user.github).to eq(nil)
+    expect(user.github).to eq("https://github.com/Isaac-Falkenstine")
+    expect(user.photo).to eq("https://avatars2.githubusercontent.com/u/41242161?v=4")
+
 
     expect(parsed[:data][:attributes]).to have_key(:api_key)
     expect(parsed[:data][:attributes][:api_key]).to eq(user.api_key)
