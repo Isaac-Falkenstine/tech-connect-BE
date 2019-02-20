@@ -14,6 +14,8 @@ class Api::V1::UsersController<ApplicationController
   end
 
   def update
+    user_json = service(get_handle(params[:github])).user_json
+
     if current_user
       current_user.update(update_params)
 
@@ -58,6 +60,14 @@ class Api::V1::UsersController<ApplicationController
   end
 
   private
+
+  def get_handle(github_url)
+    github_url.split('/').last
+  end
+
+  def service(handle)
+    GithubService.new(handle)
+  end
 
   def user_setup
     user = User.new(user_params)
