@@ -59,6 +59,14 @@ class Api::V1::UsersController<ApplicationController
 
   private
 
+  def get_handle(github_url)
+    github_url.split('/').last
+  end
+
+  def service(handle)
+    GithubService.new(handle)
+  end
+
   def user_setup
     user = User.new(user_params)
 
@@ -75,8 +83,10 @@ class Api::V1::UsersController<ApplicationController
   end
 
   def update_params
+    user_json = service(get_handle(params[:github])).user_json
     user_changes_params = params.permit(:email, :name, :phone_number, :github, :linkedin, :bio)
 
+    user_changes_params[:photo] = user_json[:avatar_url]
     user_changes_params[:location_id] = Location.find_by(city: params[:location]).id
     user_changes_params[:position_id] = Position.find_by(job_title: params[:position]).id
     user_changes_params[:employer_id] = Employer.find_by(name: params[:employer]).id

@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :linkedin
       t.string :bio
       t.string :api_key
+      t.string :photo
       t.references :location, foreign_key: true
       t.references :employer, foreign_key: true
       t.references :position, foreign_key: true
