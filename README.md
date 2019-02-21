@@ -18,6 +18,8 @@ https://waffle.io/Isaac-Falkenstine/tech-connect-BE
 * rails s (will spin up local server)
 * rspec (will run all tests in /spec directory)
 * To test sending mail using mailcatcher:
+  * add gem 'mailcatcher' to Gemfile
+  * run bundle install mailcatcher
   * type mailcatcher in CLI
   * copy/paste http://127.0.0.1:xxxx into browser
   * use Postman (https://www.getpostman.com/) to send POST requests to mailers & messages endpoints
