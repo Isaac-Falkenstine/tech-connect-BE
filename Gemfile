@@ -24,7 +24,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'pry'
-  gem 'mailcatcher'
 end
 
 group :development do
@@ -32,5 +31,3 @@ group :development do
 end
 
 gem 'faker'
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
