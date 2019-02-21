@@ -1,7 +1,7 @@
-<h3><%= @user.name %> is requesting a meeting with you through TechConnect</h3>
+<div class="content">
+<h3><%= @user.name %> is requesting a meeting with you through <span id="tc">TechConnect</span></h3>
 
-<p>Name: <%= @user.name %></p>
-<p>Bio: <%= @user.bio %></p>
+<p><%= @user.bio %></p>
 <a href=<%=@user.github %>>Github Profile</a><br>
 <a href=<%=@user.linkedin %>>LinkedIn Profile</a><br>
 
@@ -32,3 +32,4 @@
     <button type="submit" name= "<%=@connection.email %>-declined"> Rain Check</button><br>
   </div>
 </form>
+<div>
