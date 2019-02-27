@@ -573,14 +573,14 @@ Body: {"api_key": "1234567891011121"}
             "id": "1",
             "type": "message",
             "attributes": {
-              "sender": [
-                  "Updated Joe",
-                  "https://robohash.org/sapientedoloreet.png?size=300x300&set=set1"
-              ],
-              "receiver": [
-                  "Parker Carr",
-                  "https://robohash.org/sitevenietrerum.png?size=300x300&set=set1"
-              ],
+              "sender": {
+                    "name": "Updated Joe",
+                    "photo": "https://robohash.org/sapientedoloreet.png?size=300x300&set=set1"
+                },
+                "receiver": {
+                    "name": "Parker Carr",
+                    "photo": "https://robohash.org/sitevenietrerum.png?size=300x300&set=set1"
+                },
                 "status": "Confirmed",
                 "meeting_date": "2001-02-03T04:05:06.000Z",
                 "meeting_location": "Starbucks on Colorado",
@@ -591,14 +591,14 @@ Body: {"api_key": "1234567891011121"}
             "id": "7",
             "type": "message",
             "attributes": {
-              "sender": [
-                  "Updated Joe",
-                  "https://robohash.org/sapientedoloreet.png?size=300x300&set=set1"
-              ],
-              "receiver": [
-                  "Parker Carr",
-                  "https://robohash.org/sitevenietrerum.png?size=300x300&set=set1"
-              ],
+              "sender": {
+                    "name": "Updated Joe",
+                    "photo": "https://robohash.org/sapientedoloreet.png?size=300x300&set=set1"
+                },
+                "receiver": {
+                    "name": "Parker Carr",
+                    "photo": "https://robohash.org/sitevenietrerum.png?size=300x300&set=set1"
+                },
                 "status": "Confirmed",
                 "meeting_date": "2001-02-03T04:05:06.000Z",
                 "meeting_location": "ut",
@@ -609,14 +609,14 @@ Body: {"api_key": "1234567891011121"}
             "id": "8",
             "type": "message",
             "attributes": {
-              "sender": [
-                  "Updated Joe",
-                  "https://robohash.org/sapientedoloreet.png?size=300x300&set=set1"
-              ],
-              "receiver": [
-                  "Parker Carr",
-                  "https://robohash.org/sitevenietrerum.png?size=300x300&set=set1"
-              ],
+              "sender": {
+                    "name": "Updated Joe",
+                    "photo": "https://robohash.org/sapientedoloreet.png?size=300x300&set=set1"
+                },
+                "receiver": {
+                    "name": "Parker Carr",
+                    "photo": "https://robohash.org/sitevenietrerum.png?size=300x300&set=set1"
+                },
                 "status": "Confirmed",
                 "meeting_date": "2001-02-03T04:05:06.000Z",
                 "meeting_location": "accusantium",
