@@ -18,7 +18,8 @@ class User < ApplicationRecord
   end
 
   def self.get_name(id)
-    User.find(id).name
+    user = User.find(id)
+    [user.name, user.photo]
   end
 
   def get_suggestions(user)
