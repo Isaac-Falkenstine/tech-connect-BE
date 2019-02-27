@@ -1,5 +1,6 @@
 # TechConnect - Backend
 
+
 ## Introduction
 Tech-Connect is a 100% test-covered Rails application that provides multiple API endpoints for a front-end React Native application by the same name (https://github.com/KylieStanley/tech-connect).  The combined applications provide a Cold Outreach service for the Denver tech population looking for an opportunity to network with industry professionals.  The application streamlines the emailing and scheduling process for the user in order to set up a coffee meeting with potential connection.  The application provides ease of use for both the user requesting the coffee meeting and the user accepting the request.
 
@@ -573,8 +574,14 @@ Body: {"api_key": "1234567891011121"}
             "id": "1",
             "type": "message",
             "attributes": {
-                "sender": "Registered Joe",
-                "receiver": "Updated Joe",
+              "sender": {
+                    "name": "Updated Joe",
+                    "photo": "https://robohash.org/sapientedoloreet.png?size=300x300&set=set1"
+                },
+                "receiver": {
+                    "name": "Parker Carr",
+                    "photo": "https://robohash.org/sitevenietrerum.png?size=300x300&set=set1"
+                },
                 "status": "Confirmed",
                 "meeting_date": "2001-02-03T04:05:06.000Z",
                 "meeting_location": "Starbucks on Colorado",
@@ -585,8 +592,14 @@ Body: {"api_key": "1234567891011121"}
             "id": "7",
             "type": "message",
             "attributes": {
-                "sender": "Updated Joe",
-                "receiver": "Royal Payne",
+              "sender": {
+                    "name": "Updated Joe",
+                    "photo": "https://robohash.org/sapientedoloreet.png?size=300x300&set=set1"
+                },
+                "receiver": {
+                    "name": "Parker Carr",
+                    "photo": "https://robohash.org/sitevenietrerum.png?size=300x300&set=set1"
+                },
                 "status": "Confirmed",
                 "meeting_date": "2001-02-03T04:05:06.000Z",
                 "meeting_location": "ut",
@@ -597,8 +610,14 @@ Body: {"api_key": "1234567891011121"}
             "id": "8",
             "type": "message",
             "attributes": {
-                "sender": "Updated Joe",
-                "receiver": "Brooke Trout",
+              "sender": {
+                    "name": "Updated Joe",
+                    "photo": "https://robohash.org/sapientedoloreet.png?size=300x300&set=set1"
+                },
+                "receiver": {
+                    "name": "Parker Carr",
+                    "photo": "https://robohash.org/sitevenietrerum.png?size=300x300&set=set1"
+                },
                 "status": "Confirmed",
                 "meeting_date": "2001-02-03T04:05:06.000Z",
                 "meeting_location": "accusantium",

@@ -15,11 +15,10 @@ private
   end
 
   def login_user
-  @user ||= User.find_by(email: login_params[:email])
-end
+    @user ||= User.find_by(email: login_params[:email])
+  end
 
-def valid_user?
-  login_user.authenticate(params[:password]) if login_user
-end
-
+  def valid_user?
+    login_user.authenticate(params[:password]) if login_user
+  end
 end

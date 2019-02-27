@@ -17,8 +17,9 @@ class User < ApplicationRecord
     User.select("users.id, users.name, users.photo, locations.city AS city, employers.name AS company, positions.job_title").joins(:employer, :location, :position).where(id: user_ids)
   end
 
-  def self.get_name(id)
-    User.find(id).name
+  def self.get_user_info(id)
+    user = User.find(id)
+    {name: user.name, photo: user.photo}
   end
 
   def get_suggestions(user)
