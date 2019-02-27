@@ -1,5 +1,6 @@
 # TechConnect - Backend
 
+
 ## Introduction
 Tech-Connect is a 100% test-covered Rails application that provides multiple API endpoints for a front-end React Native application by the same name (https://github.com/KylieStanley/tech-connect).  The combined applications provide a Cold Outreach service for the Denver tech population looking for an opportunity to network with industry professionals.  The application streamlines the emailing and scheduling process for the user in order to set up a coffee meeting with potential connection.  The application provides ease of use for both the user requesting the coffee meeting and the user accepting the request.
 
