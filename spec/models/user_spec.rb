@@ -42,10 +42,9 @@ RSpec.describe User, type: :model do
 
     it 'get_name' do
       user_1 = create(:user)
-
-      user_name = User.get_name(user_1.id)
-
-      expect(user_name).to eq(user_1.name)
+      user_name = User.get_user_info(user_1.id)
+      expect(user_name[:name]).to eq(user_1.name)
+      expect(user_name[:photo]).to eq(user_1.photo)
     end
 
     it 'get_suggestions' do
