@@ -23,7 +23,8 @@ class User < ApplicationRecord
   end
 
   def get_suggestions(user)
-    User.select("users.id, users.name, locations.city AS city, employers.name AS company, positions.job_title").joins(:employer, :location, :position).joins("LEFT OUTER JOIN messages ON users.id = messages.connection_id").where("users.location_id = #{user.location_id}").where("users.id != #{user.id}").where("messages.id IS null").shuffle().first(3)
+    connections = user.connections.uniq.pluck(:id)
+    User.select("users.id, users.name, locations.city AS city, employers.name AS company, positions.job_title").joins(:employer, :location, :position).where("users.location_id = #{user.location_id}").where.not(id: connections).where.not(id: user.id).shuffle().first(3)
   end
 
   def self.filter(params)
