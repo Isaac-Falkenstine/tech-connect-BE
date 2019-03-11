@@ -6,13 +6,11 @@ describe 'user login request and response' do
     location_1 = create(:location)
     user = create_list(:user, 1, password: "password", location_id: location_1.id, name: "Bailey")
     user_2 = create(:user, name: "Isaac", location_id: location_1.id)
-    user_3 = create(:user, location_id: location_1.id)
-    create(:user, location_id: location_1.id)
-    create(:user, location_id: location_1.id)
-    create(:user)
+    user_3 = create(:user, name: "Gonzo", location_id: location_1.id)
+    user_4 = create(:user, name: "Kaylee", location_id: location_1.id)
+    user_5 = create(:user, name: "Kylie", location_id: location_1.id)
+    user_6 = create(:user)
 
-
-    message = create(:message, user_id: user.first.id, connection_id: user_2.id)
     message_2 = create(:message, user_id: user_2.id, connection_id: user.first.id)
     message_3 = create(:message, user_id: user.first.id, connection_id: user_3.id)
     message_4 = create(:message, user_id: user_2.id, connection_id: user_3.id)
@@ -21,7 +19,6 @@ describe 'user login request and response' do
 
     expect(response).to be_successful
     parsed = JSON.parse(response.body, symbolize_names: true)
-
 
     expect(parsed[:data][:attributes]).to have_key(:api_key)
     expect(parsed[:data][:attributes][:api_key]).to eq(user.first.api_key)
@@ -34,7 +31,7 @@ describe 'user login request and response' do
     expect(parsed[:data][:attributes]).to have_key(:position)
     expect(parsed[:data][:attributes]).to have_key(:employer)
     expect(parsed[:data][:attributes]).to have_key(:connections)
-    expect(parsed[:data][:attributes][:connections].length).to eq(2)
+    expect(parsed[:data][:attributes][:connections].length).to eq(1)
     expect(parsed[:data][:attributes][:connections][0]).to have_key(:id)
     expect(parsed[:data][:attributes][:connections][0]).to have_key(:name)
     expect(parsed[:data][:attributes][:connections][0]).to have_key(:city)
