@@ -4,6 +4,7 @@ class ConfirmationMailer < ApplicationMailer
     @user = User.find(data[:user_id])
     @connection = User.find(data[:connection_id])
     @data = data
+    @data[:datetime] = Time.parse(data[:meeting_date]).strftime("%m/%d/%Y %I:%M %p")
     mail(to: [@user.email, @connection.email], subject: "You have a confirmed meeting through TechConnect")
   end
 
