@@ -10,13 +10,15 @@ class Api::V1::MessagesController < ApplicationController
   end
 
   def new
-    message = Message.create(message_params)
-    if message.status == "confirmed"
-      ConfirmationMailer.confirm(message_params).deliver_now
-      render :json => "You have confirmed your meeting"
-    else
-      ConfirmationMailer.decline(message_params).deliver_now
-      render :json => "You have declined the meeting request"
+    if Message.find_token?(params[:token]).empty?
+      message = Message.create(message_params)
+      if message.status == "confirmed"
+        ConfirmationMailer.confirm(message_params).deliver_now
+        render :json => "You have confirmed your meeting"
+      else
+        ConfirmationMailer.decline(message_params).deliver_now
+        render :json => "You have declined the meeting request"
+      end
     end
   end
 
@@ -24,7 +26,7 @@ private
   def message_params
     id = User.where(email: find_email(params.keys)).first.id
     if params.keys.any? { |k| k.include?("confirmed") }
-      update_info = params.permit(:meeting_location, :meeting_date, :user_id, :status)
+      update_info = params.permit(:meeting_location, :meeting_date, :user_id, :status, :token)
       update_info[:status] = "confirmed"
       update_info[:connection_id] = id
       update_info[:meeting_date] = format_date(params[:meeting_date])
@@ -51,4 +53,5 @@ private
     first_element = element.rotate(-1)
     first_element.join("-") + " #{array.last}"
   end
+
 end

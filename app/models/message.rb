@@ -20,4 +20,8 @@ class Message < ApplicationRecord
     Message.where("user_id = #{user.id} OR connection_id = #{user.id}")
   end
 
+  def self.find_token?(token)
+    Message.where(token: token)
+  end 
+
 end
