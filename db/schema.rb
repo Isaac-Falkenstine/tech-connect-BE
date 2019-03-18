@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_02_13_181758) do
     t.string "status"
     t.datetime "meeting_date"
     t.string "meeting_location"
+    t.string "token"
     t.bigint "user_id"
     t.integer "connection_id"
     t.datetime "created_at", null: false
