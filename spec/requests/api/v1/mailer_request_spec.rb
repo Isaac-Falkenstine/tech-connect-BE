@@ -21,6 +21,7 @@ describe "Mailers Request" do
     expect(response).to be_successful
 
     parsed = JSON.parse(response.body, symbolize_names: true)
+
     expect(parsed[:success]).to eq("Email Sent")
   end
 
