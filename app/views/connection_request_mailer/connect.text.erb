@@ -25,6 +25,10 @@
     <label for="radio3"><%= @data[:datetime_3] %></label><br>
   </div>
 
+  <div id="token">
+    <input type="hidden" name="token" value="<%= @token %>">
+  </div>
+
   <div>
     <br><button type="submit" name= "<%=@connection.email %>-confirmed" >Make Meeting</button><br>
 

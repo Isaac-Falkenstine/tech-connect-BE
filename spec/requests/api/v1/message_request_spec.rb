@@ -57,4 +57,15 @@ describe 'making a message api and response' do
     expect(Message.where(user_id: user_1.id).length).to eq(1)
     expect(Message.where(user_id: user_1.id).last.status).to eq("declined")
   end
+  it 'GET users/:id/messages/new' do
+    user_1 = create(:user, email: "sending@gmail.com")
+    user_2 = create(:user, email: "test@gmail.com")
+    message = create(:message, user: user_1, connection: user_2)
+    params = {"meeting_location"=>"Starbucks on Broadway", "meeting_date"=>"02-07-2019 06:17", "#{user_2.email}-confirmed" => "", "token" => "abc123"}
+    expect(Message.where(user_id: user_1.id).length).to eq(1)
+
+    get "/api/v1/users/#{user_1.id}/messages/new", params: params
+
+    expect(Message.where(user_id: user_1.id).length).to eq(1)
+  end
 end

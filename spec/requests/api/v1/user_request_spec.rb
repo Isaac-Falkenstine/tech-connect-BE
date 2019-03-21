@@ -95,7 +95,6 @@ describe 'making a position api and response' do
 
     expect(response).to be_successful
     parsed = JSON.parse(response.body, symbolize_names: true)
-
     expect(parsed[:data]).to be_a(Array)
     expect(parsed[:data].length).to eq(2)
     expect(parsed[:data][0][:attributes]).to have_key(:name)

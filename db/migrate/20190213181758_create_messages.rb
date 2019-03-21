@@ -4,6 +4,7 @@ class CreateMessages < ActiveRecord::Migration[5.2]
       t.string :status
       t.datetime :meeting_date
       t.string :meeting_location
+      t.string :token
       t.references :user, foreign_key: true
       t.integer :connection_id
 
