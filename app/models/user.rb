@@ -24,7 +24,7 @@ class User < ApplicationRecord
 
   def get_suggestions(user)
     connections = user.connections.uniq.pluck(:id)
-    User.select("users.id, users.name, locations.city AS city, employers.name AS company, positions.job_title").joins(:employer, :location, :position).where("users.location_id = #{user.location_id}").where.not(id: connections).where.not(id: user.id).shuffle().first(3)
+    User.select("users.id, users.name, locations.city AS city, employers.name AS company, positions.job_title, users.photo").joins(:employer, :location, :position).where("users.location_id = #{user.location_id}").where.not(id: connections).where.not(id: user.id).shuffle().first(3)
   end
 
   def self.filter(params)
